@@ -1,11 +1,9 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using weka.classifiers.functions;
 using weka.classifiers.meta;
-using weka.classifiers.trees;
 using weka.core;
 using static IddaaWekaTest.OgrenmeClass;
 using static IddaaWekaTest.SabitDeger;
@@ -52,8 +50,6 @@ namespace IddaaWekaTest
 
             Instances trainData = helper.convertFromListStringToIntances(linesOgrenme);
             Instances testData = helper.convertFromListStringToIntances(linesTest);
-
-            string aa = "LogitBoost";
 
             LogitBoost ogrenmeLogistic = new LogitBoost();
             ogrenmeLogistic.buildClassifier(trainData);
