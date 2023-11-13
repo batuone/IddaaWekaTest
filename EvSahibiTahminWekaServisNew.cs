@@ -20,12 +20,11 @@ namespace IddaaWekaTest
     {
         SabitDegerler sabitDeger = new SabitDegerler();
 
-        public String calistirTahmin(string[] ligler)
+        public void calistirTahmin(string[] ligler)
         {
             DahilOgrenmeAttribute dahilOgrenme = new DahilOgrenmeAttribute();
             MacSonuOgrenmeServisNew macSonuOgrenmeServisNew = new MacSonuOgrenmeServisNew();
             StringBuilder sb = new StringBuilder();
-            List<Sonuc> lstSonucGenel = new List<Sonuc>();
             HelperServis helper = new HelperServis();
 
             using (var ctx = new IDDAA_Entities())
@@ -46,47 +45,29 @@ namespace IddaaWekaTest
                 ////test calistir
                 List<CalistirTestSonuc> calistirTestSonucList = calisTestParallel(atrributeCountMap, lstOgrenmeButunAttributelar, 
                     ligler,classifiers);
-
-
+                
                 foreach (var item in calistirTestSonucList)
                 {
                     item.lig = ligler.First();
                     item.macTip = sabitDeger.evSahibiSonuc;
                 }
 
-                sb = yazSonuc(sb, lstSonucGenel);
+                sb = yazSonuc(sb, calistirTestSonucList);
                 helper.yazSonucToFile(sb.ToString());
-                return sb.ToString();
             }
         }
         
-        private StringBuilder yazSonuc(StringBuilder sb, List<Sonuc> lstSonuc)
+        private StringBuilder yazSonuc(StringBuilder sb, List<CalistirTestSonuc> calistirTestSonucList)
         {
-            HelperServis helper = new HelperServis();
-
-            var lstTarih = lstSonuc.GroupBy(x => x.Tarih.ToShortDateString())
-                   .Select(grp => new
-                   {
-                       tarih = grp.Key
-                   }).ToArray();
-
-            foreach (var macTarih in lstTarih.OrderBy(c => c.tarih))
+            foreach (var item in calistirTestSonucList)
             {
-                foreach (var item in lstSonuc.Where(c => c.Tarih.ToShortDateString() == macTarih.tarih).OrderBy(c => c.TarihSaat))
-                {
-                    sb.Append(item.TarihSaat);
-                    sb.Append(" --> ");
-                    sb.Append(item.EvSahibi);
-                    sb.Append(" - ");
-                    sb.Append(item.Deplasman);
-                    sb.Append(" -- ");
-                    sb.Append(item.Tahmin);
-                    sb.Append(" -- ");
-                    sb.Append(item.IddaaOran);
-                    sb.Append(" -- ");
-                    sb.Append("%" + item.SistemOran);
-                    sb.Append(System.Environment.NewLine);
-                }
+                sb.Append(item.macTip );
+                sb.Append(" --> ");
+                sb.Append(item.lig);
+                sb.Append(" - ");
+                sb.Append(item.wekaTip);
+                sb.Append(" -- ");
+                sb.Append(item.Kar);
                 sb.Append(System.Environment.NewLine);
             }
             return sb;

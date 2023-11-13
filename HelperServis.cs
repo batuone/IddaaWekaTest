@@ -409,6 +409,17 @@ namespace IddaaWekaTest
             //fs.Close();
         }
 
+        public void yazSonucWekaTestToFile(String not)
+        {
+            string dosya_yolu = @"C:\\Users\\batuh\\Desktop\\wekaML.txt";
+            System.IO.FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine(not);
+            sw.Flush();
+            sw.Close();
+            fs.Close();
+
+        }
         public decimal bulMacSonuOran(String evSahibi, String deplasman, DateTime tarih, String predict)
         {
             using (var ctx = new IDDAA_Entities())
