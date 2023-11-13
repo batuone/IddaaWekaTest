@@ -390,6 +390,9 @@ namespace IddaaWekaTest
         {
             public int testYuzdeOran { get; set; }
             public decimal Kar { get; set; }
+            public string lig { get; set; }
+            public string macTip { get; set; }
+            public string wekaTip { get; set; }
 
             public string[] kullanilacakAttribute;
 

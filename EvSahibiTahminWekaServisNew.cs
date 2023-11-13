@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using weka.classifiers;
 using weka.classifiers.functions;
 using weka.classifiers.meta;
 using weka.classifiers.trees;
@@ -35,14 +36,24 @@ namespace IddaaWekaTest
                 List<OgrenmeClass> lstOgrenmeButunAttributelar = macSonuOgrenmeServisNew.ekleMacSonuOgrenmeButunAttributeler
                     (ligler, dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
 
-                List<OGRENME> lstOgrenme = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
+                List<OGRENME> lstOgrenme = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, 
+                    dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
 
                 //attribute belirle
                 atrributeCountMap = opsiyonelAttributeKumeleri(atrributeCountMap, lstOgrenme);
 
+                Classifier[] classifiers = { new RandomSubSpace(), new RandomForest() };
                 ////test calistir
-                CalistirTestSonuc calistirTestSonuc = calisTestParallel(atrributeCountMap, lstOgrenmeButunAttributelar, ligler);
-                
+                List<CalistirTestSonuc> calistirTestSonucList = calisTestParallel(atrributeCountMap, lstOgrenmeButunAttributelar, 
+                    ligler,classifiers);
+
+
+                foreach (var item in calistirTestSonucList)
+                {
+                    item.lig = ligler.First();
+                    item.macTip = sabitDeger.evSahibiSonuc;
+                }
+
                 sb = yazSonuc(sb, lstSonucGenel);
                 helper.yazSonucToFile(sb.ToString());
                 return sb.ToString();
@@ -118,37 +129,47 @@ namespace IddaaWekaTest
             return atrributeCountMap;
         }
 
-        private CalistirTestSonuc calisTestParallel(Dictionary<int, string[]> atrributeCountMap, List<OgrenmeClass> lstOgrenmeButunAttributelar,
-            string[] ligler)
+        private List<CalistirTestSonuc> calisTestParallel(Dictionary<int, string[]> atrributeCountMap, List<OgrenmeClass> lstOgrenmeButunAttributelar,
+            string[] ligler, Classifier[] classifiers)
         {
-            MacSonuOgrenmeServisNew macSonuOgrenmeServisNew = new MacSonuOgrenmeServisNew();
-            MacSonuWekaTestServisNew macSonuWekaTestServisNew = new MacSonuWekaTestServisNew();
-            HelperServis helper = new HelperServis();
-            decimal kar = 0;
-            CalistirTestSonuc calistirTestSonuc = new CalistirTestSonuc();
-            TahminTestServis tahminTestServis = new TahminTestServis();
+            List<CalistirTestSonuc> calistirTestSonuclist = new List<CalistirTestSonuc>();
             
-            List<OGRENME> lstOgrenmeParallel = new List<OGRENME>();
-            KarTest karTestParallel = new KarTest();
-            Dictionary<int, decimal> karMapParallel = new Dictionary<int, decimal>();
+            foreach (var item in classifiers)
+            {
+                MacSonuOgrenmeServisNew macSonuOgrenmeServisNew = new MacSonuOgrenmeServisNew();
+                MacSonuWekaTestServisNew macSonuWekaTestServisNew = new MacSonuWekaTestServisNew();
+                HelperServis helper = new HelperServis();
+                decimal kar = 0;                
+                TahminTestServis tahminTestServis = new TahminTestServis();
+                List<OGRENME> lstOgrenmeParallel = new List<OGRENME>();
+                KarTest karTestParallel = new KarTest();
+                Dictionary<int, decimal> karMapParallel = new Dictionary<int, decimal>();
 
-            Parallel.For(0, atrributeCountMap.Count(), i => {
+                CalistirTestSonuc calistirTestSonuc = new CalistirTestSonuc();
 
-                lstOgrenmeParallel = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, atrributeCountMap.ElementAt(i).Value, sabitDeger.evSahibiSonuc);
+                Parallel.For(0, atrributeCountMap.Count(), i => {
 
-                //test calistir
-                karTestParallel = macSonuWekaTestServisNew.calistirMacSonuOgrenmeTest(lstOgrenmeParallel, false, sabitDeger.evSahibiSonuc,
-                    ligler);
+                    Classifier classifieraa = (Classifier)Activator.CreateInstance(item.GetType());
 
-                karMapParallel.Add(atrributeCountMap.ElementAt(i).Key, karTestParallel.kar);
-            });
+                    lstOgrenmeParallel = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, atrributeCountMap.ElementAt(i).Value, sabitDeger.evSahibiSonuc);
 
-            // en karli olan attribute grubu alinir
-            karMapParallel = karMapParallel.OrderByDescending(c => c.Value).ThenByDescending(c => c.Key).ToDictionary(x => x.Key, x => x.Value);
-            
-            calistirTestSonuc.Kar = karMapParallel.First().Value;
+                    //test calistir
+                    karTestParallel = macSonuWekaTestServisNew.calistirMacSonuOgrenmeTest(lstOgrenmeParallel, false, sabitDeger.evSahibiSonuc,
+                        ligler, classifieraa);
 
-            return calistirTestSonuc;
+                    karMapParallel.Add(atrributeCountMap.ElementAt(i).Key, karTestParallel.kar);
+                });
+
+                // en karli olan attribute grubu alinir
+                karMapParallel = karMapParallel.OrderByDescending(c => c.Value).ThenByDescending(c => c.Key).ToDictionary(x => x.Key, x => x.Value);
+
+                calistirTestSonuc.Kar = karMapParallel.First().Value;
+                calistirTestSonuc.wekaTip = item.GetType().Name;
+
+                calistirTestSonuclist.Add(calistirTestSonuc);
+            }
+
+            return calistirTestSonuclist;
         }
 
     }

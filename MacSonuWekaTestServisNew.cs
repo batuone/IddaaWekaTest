@@ -1,8 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
+using weka.classifiers;
 using weka.classifiers.meta;
 using weka.core;
 using static IddaaWekaTest.OgrenmeClass;
@@ -15,7 +17,7 @@ namespace IddaaWekaTest
         SabitDegerler sabitDeger = new SabitDegerler();
 
         public KarTest calistirMacSonuOgrenmeTest(List<OGRENME> lstOgrenme, bool isYazdir, string ogrenmeTip, 
-            string[] ligPair)
+            string[] ligPair, Classifier ogrenmeLogistic)
         {
             HelperServis helper = new HelperServis();
             List<Sonuc> lstProbs = new List<Sonuc>();
@@ -51,7 +53,8 @@ namespace IddaaWekaTest
             Instances trainData = helper.convertFromListStringToIntances(linesOgrenme);
             Instances testData = helper.convertFromListStringToIntances(linesTest);
 
-            LogitBoost ogrenmeLogistic = new LogitBoost();
+
+            //LogitBoost ogrenmeLogistic = new LogitBoost();
             ogrenmeLogistic.buildClassifier(trainData);
 
             double evSahibiOran; double deplasmanOran; double beraberOran; string evSahibi; string deplasman; string lig; DateTime tarih;

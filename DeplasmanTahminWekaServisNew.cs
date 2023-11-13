@@ -4,6 +4,7 @@ using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using weka.classifiers;
 using weka.classifiers.functions;
 using weka.classifiers.meta;
 using weka.classifiers.trees;
@@ -301,6 +302,7 @@ namespace IddaaWekaTest
             List<OGRENME> lstOgrenmeParallel = new List<OGRENME>();
             KarTest karTestParallel = new KarTest();
             Dictionary<int, decimal> karMapParallel = new Dictionary<int, decimal>();
+            Classifier ogrenmeLogistic = new LogitBoost();
 
             Parallel.For(0, atrributeCountMap.Count(), i => {
 
@@ -309,7 +311,7 @@ namespace IddaaWekaTest
 
                 //test calistir
                 karTestParallel = macSonuWekaTestServisNew.calistirMacSonuOgrenmeTest(lstOgrenmeParallel, false, sabitDeger.deplasmanSonuc,
-                    ligler);
+                    ligler, ogrenmeLogistic);
 
                 karMapParallel.Add(atrributeCountMap.ElementAt(i).Key, karTestParallel.kar);
             });
