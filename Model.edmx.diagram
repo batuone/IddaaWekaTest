@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0b51e17744d4df3b83cbe192b9ea87b" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="IDDAA_Model.ARALARINDA_SON_MAC" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.ARSIV" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.ATTRIBUTE_MIN_MAX_DEGER" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.BOOKMAKER_BULTEN" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.BOOKMAKER_ODD" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.BULTEN" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.CANLI_ISTATISTIK" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.DEPLASMAN_SON_MAC" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.EV_SAHIBI_SON_MAC" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.ILK_YARI_SONU_ISTATISTIK" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.KG_VAR_YOK_ISTATISTIK" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.MAC_SONU_ISTATISTIK" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.MS25_ALT_UST_ISTATISTIK" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.OGRENME" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.OYUNCU_GOL_SAYISI" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.PARAMETRE" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.POPULER_BAHIS" Width="1.5" PointX="6.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.PUAN_DURUMU" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.SAKAT_CEZALI" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.TAKIM_ISTATISTIK" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.TOPLAM_GOL_ISTATISTIK" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_ML" Width="1.5" PointX="11.375" PointY="16.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_SONUC" Width="1.5" PointX="17.375" PointY="12.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_TEST" Width="1.5" PointX="17.375" PointY="17.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_ML_HEPSI" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_PROBABILITY" Width="1.5" PointX="19.375" PointY="4.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.LIG_ISLEME" Width="1.5" PointX="19.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

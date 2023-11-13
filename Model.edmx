@@ -1,0 +1,2136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IDDAA_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ARALARINDA_SON_MAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TARIH" Type="date" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR_IY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR_MS" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ARSIV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="date" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" />
+          <Property Name="BETRADAR_ID" Type="int" />
+          <Property Name="UZAKLIK" Type="int" />
+          <Property Name="MBS" Type="int" />
+          <Property Name="SKOR_IY" Type="varchar" MaxLength="50" />
+          <Property Name="SKOR_MS" Type="varchar" MaxLength="50" />
+          <Property Name="MS_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MS_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MS_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KGV" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KGY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_2_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_IY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_IY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_1_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_1_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_2_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_2_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_3_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_3_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_0_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_2_3" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_4_6" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_7_ARTI" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="ATTRIBUTE_MIN_MAX_DEGER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ATTRIBUTE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MIN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MAX" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="BOOKMAKER_BULTEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" />
+          <Property Name="BETRADAR_ID" Type="int" />
+          <Property Name="UZAKLIK" Type="int" />
+          <Property Name="MBS" Type="int" />
+          <Property Name="MS_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MS_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MS_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KGV" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KGY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_2_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_IY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_IY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_1_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_1_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_2_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_2_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_3_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_3_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_0_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_2_3" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_4_6" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_7_ARTI" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="BOOKMAKER_ODD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="MS_1" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="MS_X" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="MS_2" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="ALT_2_5" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="UST_2_5" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="BETRADAR_ID" Type="int" />
+          <Property Name="MS_1_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="MS_X_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="MS_2_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ALT_2_5_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="UST_2_5_IDDAA" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="BULTEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" />
+          <Property Name="BETRADAR_ID" Type="int" />
+          <Property Name="UZAKLIK" Type="int" />
+          <Property Name="MBS" Type="int" />
+          <Property Name="MS_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MS_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="MS_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IY_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="H_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KGV" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KGY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_2" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_2_X" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_IY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_IY" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_1_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_1_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_2_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_2_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_3_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="UST_3_5" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_0_1" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_2_3" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_4_6" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TG_7_ARTI" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="CANLI_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="BETRADAR_ID" Type="int" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="DAKIKA" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SKOR_IY" Type="varchar" MaxLength="10" />
+          <Property Name="SKOR_MS" Type="varchar" MaxLength="10" />
+          <Property Name="TOPA_SAHIP_IY" Type="int" />
+          <Property Name="SARI_KART_IY" Type="int" />
+          <Property Name="KIRMIZI_KART_IY" Type="int" />
+          <Property Name="KORNER_IY" Type="int" />
+          <Property Name="FRIKIK_IY" Type="int" />
+          <Property Name="KALE_VURUS_IY" Type="int" />
+          <Property Name="TAC_IY" Type="int" />
+          <Property Name="OFSAYT_IY" Type="int" />
+          <Property Name="SUT_ISABET_IY" Type="int" />
+          <Property Name="SUT_ISABETSIZ_IY" Type="int" />
+          <Property Name="KURTARIS_IY" Type="int" />
+          <Property Name="FAUL_IY" Type="int" />
+          <Property Name="SUT_BLOK_IY" Type="int" />
+          <Property Name="GOL_DENEME_IY" Type="int" />
+          <Property Name="SAKAT_IY" Type="int" />
+          <Property Name="TOP_GUVENDE_IY" Type="int" />
+          <Property Name="HUCUM_IY" Type="int" />
+          <Property Name="TEHLIKELI_ATAK_IY" Type="int" />
+          <Property Name="TOPA_SAHIP_MS" Type="int" />
+          <Property Name="SARI_KART_MS" Type="int" />
+          <Property Name="KIRMIZI_KART_MS" Type="int" />
+          <Property Name="KORNER_MS" Type="int" />
+          <Property Name="FRIKIK_MS" Type="int" />
+          <Property Name="KALE_VURUS_MS" Type="int" />
+          <Property Name="TAC_MS" Type="int" />
+          <Property Name="OFSAYT_MS" Type="int" />
+          <Property Name="SUT_ISABET_MS" Type="int" />
+          <Property Name="SUT_ISABETSIZ_MS" Type="int" />
+          <Property Name="KURTARIS_MS" Type="int" />
+          <Property Name="FAUL_MS" Type="int" />
+          <Property Name="SUT_BLOK_MS" Type="int" />
+          <Property Name="GOL_DENEME_MS" Type="int" />
+          <Property Name="SAKAT_MS" Type="int" />
+          <Property Name="TOP_GUVENDE_MS" Type="int" />
+          <Property Name="HUCUM_MS" Type="int" />
+          <Property Name="TEHLIKELI_ATAK_MS" Type="int" />
+          <Property Name="TIP" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="DEPLASMAN_SON_MAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TARIH" Type="date" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR_IY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR_MS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SONUC" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EV_SAHIBI_SON_MAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TARIH" Type="date" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR_IY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKOR_MS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SONUC" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ILK_YARI_SONU_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GENEL_EV_GALIBIYET" Type="int" />
+          <Property Name="GENEL_EV_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_BERABER" Type="int" />
+          <Property Name="GENEL_EV_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_MAGLUBIYET" Type="int" />
+          <Property Name="GENEL_EV_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_GALIBIYET" Type="int" />
+          <Property Name="GENEL_DEP_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_BERABER" Type="int" />
+          <Property Name="GENEL_DEP_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_MAGLUBIYET" Type="int" />
+          <Property Name="GENEL_DEP_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_GALIBIYET" Type="int" />
+          <Property Name="IC_DIS_EV_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_BERABER" Type="int" />
+          <Property Name="IC_DIS_EV_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET" Type="int" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_GALIBIYET" Type="int" />
+          <Property Name="IC_DIS_DEP_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_BERABER" Type="int" />
+          <Property Name="IC_DIS_DEP_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET" Type="int" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_GALIBIYET" Type="int" />
+          <Property Name="ARA_EV_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_BERABER" Type="int" />
+          <Property Name="ARA_EV_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_MAGLUBIYET" Type="int" />
+          <Property Name="ARA_EV_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_GALIBIYET" Type="int" />
+          <Property Name="ARA_DEP_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_BERABER" Type="int" />
+          <Property Name="ARA_DEP_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_MAGLUBIYET" Type="int" />
+          <Property Name="ARA_DEP_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="KG_VAR_YOK_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GENEL_EV_KGV" Type="int" />
+          <Property Name="GENEL_EV_KGV_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_KGY" Type="int" />
+          <Property Name="GENEL_EV_KGY_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_KGV" Type="int" />
+          <Property Name="IC_DIS_EV_KGV_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_KGY" Type="int" />
+          <Property Name="IC_DIS_EV_KGY_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_KGV" Type="int" />
+          <Property Name="ARA_EV_KGV_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_KGY" Type="int" />
+          <Property Name="ARA_EV_KGY_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_KGV" Type="int" />
+          <Property Name="GENEL_DEP_KGV_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_KGY" Type="int" />
+          <Property Name="GENEL_DEP_KGY_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_KGV" Type="int" />
+          <Property Name="IC_DIS_DEP_KGV_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_KGY" Type="int" />
+          <Property Name="IC_DIS_DEP_KGY_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_KGV" Type="int" />
+          <Property Name="ARA_DEP_KGV_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_KGY" Type="int" />
+          <Property Name="ARA_DEP_KGY_ORAN" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="LIG_ISLEME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIRA" Type="int" Nullable="false" />
+          <Property Name="TARIH" Type="date" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BASLADI" Type="varchar" MaxLength="2" />
+          <Property Name="BITTI" Type="varchar" MaxLength="2" />
+          <Property Name="TIP" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="MAC_SONU_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GENEL_EV_GALIBIYET" Type="int" />
+          <Property Name="GENEL_EV_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_BERABER" Type="int" />
+          <Property Name="GENEL_EV_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_MAGLUBIYET" Type="int" />
+          <Property Name="GENEL_EV_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_GALIBIYET" Type="int" />
+          <Property Name="GENEL_DEP_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_BERABER" Type="int" />
+          <Property Name="GENEL_DEP_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_MAGLUBIYET" Type="int" />
+          <Property Name="GENEL_DEP_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_GALIBIYET" Type="int" />
+          <Property Name="IC_DIS_EV_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_BERABER" Type="int" />
+          <Property Name="IC_DIS_EV_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET" Type="int" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_GALIBIYET" Type="int" />
+          <Property Name="IC_DIS_DEP_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_BERABER" Type="int" />
+          <Property Name="IC_DIS_DEP_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET" Type="int" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_GALIBIYET" Type="int" />
+          <Property Name="ARA_EV_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_BERABER" Type="int" />
+          <Property Name="ARA_EV_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_MAGLUBIYET" Type="int" />
+          <Property Name="ARA_EV_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_GALIBIYET" Type="int" />
+          <Property Name="ARA_DEP_GALIBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_BERABER" Type="int" />
+          <Property Name="ARA_DEP_BERABER_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_MAGLUBIYET" Type="int" />
+          <Property Name="ARA_DEP_MAGLUBIYET_ORAN" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="MS25_ALT_UST_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GENEL_EV_ALT" Type="int" />
+          <Property Name="GENEL_EV_ALT_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_UST" Type="int" />
+          <Property Name="GENEL_EV_UST_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_ALT" Type="int" />
+          <Property Name="IC_DIS_EV_ALT_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_UST" Type="int" />
+          <Property Name="IC_DIS_EV_UST_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_ALT" Type="int" />
+          <Property Name="ARA_EV_ALT_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_UST" Type="int" />
+          <Property Name="ARA_EV_UST_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_ALT" Type="int" />
+          <Property Name="GENEL_DEP_ALT_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_UST" Type="int" />
+          <Property Name="GENEL_DEP_UST_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_ALT" Type="int" />
+          <Property Name="IC_DIS_DEP_ALT_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_UST" Type="int" />
+          <Property Name="IC_DIS_DEP_UST_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_ALT" Type="int" />
+          <Property Name="ARA_DEP_ALT_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_UST" Type="int" />
+          <Property Name="ARA_DEP_UST_ORAN" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="OGRENME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="date" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SONUC" Type="varchar" MaxLength="8000" />
+          <Property Name="TIPI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SONUC_REAL" Type="varchar" MaxLength="8000" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OYUNCU_GOL_SAYISI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OYUNCU_ADI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GOL_SAYISI" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARAMETRE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" />
+          <Property Name="AD_EK" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="POPULER_BAHIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAC_TARIH" Type="datetime" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="BETRADAR_ID" Type="int" Nullable="false" />
+          <Property Name="OYNANMA_SAYI" Type="int" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MBS" Type="int" Nullable="false" />
+          <Property Name="ORAN" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="SIRA" Type="int" />
+          <Property Name="MS_1_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="MS_X_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="MS_2_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ALT_2_5_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="UST_2_5_IDDAA" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="PUAN_DURUMU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GENEL_SIRA" Type="int" />
+          <Property Name="GENEL_MAC_SAYISI" Type="int" />
+          <Property Name="GENEL_GALIBIYET" Type="int" />
+          <Property Name="GENEL_BERABERLIK" Type="int" />
+          <Property Name="GENEL_MAGLUBIYET" Type="int" />
+          <Property Name="GENEL_ATTIGI_GOL" Type="int" />
+          <Property Name="GENEL_YEDIGI_GOL" Type="int" />
+          <Property Name="GENEL_PUAN" Type="int" />
+          <Property Name="EV_SAHIBI_SIRA" Type="int" />
+          <Property Name="EV_SAHIBI_MAC_SAYISI" Type="int" />
+          <Property Name="EV_SAHIBI_GALIBIYET" Type="int" />
+          <Property Name="EV_SAHIBI_BERABERLIK" Type="int" />
+          <Property Name="EV_SAHIBI_MAGLUBIYET" Type="int" />
+          <Property Name="EV_SAHIBI_ATTIGI_GOL" Type="int" />
+          <Property Name="EV_SAHIBI_YEDIGI_GOL" Type="int" />
+          <Property Name="EV_SAHIBI_PUAN" Type="int" />
+          <Property Name="DEPLASMAN_SIRA" Type="int" />
+          <Property Name="DEPLASMAN_MAC_SAYISI" Type="int" />
+          <Property Name="DEPLASMAN_GALIBIYET" Type="int" />
+          <Property Name="DEPLASMAN_BERABERLIK" Type="int" />
+          <Property Name="DEPLASMAN_MAGLUBIYET" Type="int" />
+          <Property Name="DEPLASMAN_ATTIGI_GOL" Type="int" />
+          <Property Name="DEPLASMAN_YEDIGI_GOL" Type="int" />
+          <Property Name="DEPLASMAN_PUAN" Type="int" />
+        </EntityType>
+        <EntityType Name="SAKAT_CEZALI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="varchar" MaxLength="50" />
+          <Property Name="POZISYON" Type="varchar" MaxLength="50" />
+          <Property Name="MAC_SAYISI" Type="int" />
+          <Property Name="ON_BIR_MAC_SAYISI" Type="int" />
+          <Property Name="GOL_SAYISI" Type="int" />
+          <Property Name="OYUNCU_ADI" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TAHMIN_ML">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ORAN" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="ML_TAHMIN_YUZDE" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="ML_TEST_YUZDE" Type="int" Nullable="false" />
+          <Property Name="KAR" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="TAHMIN_ML_HEPSI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ORAN" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="ML_TAHMIN_YUZDE" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAHMIN_PROBABILITY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PROB_ORAN" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAHMIN_SONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="POPULER_MAC_MI" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="OYNANMA_YUZDE_MAX_MI" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="BOOKMAKER_AZALIYOR_MU" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="OYNANDI_MI" Type="varchar" MaxLength="1" />
+          <Property Name="ML_TAHMIN_YUZDE" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="BOOKMAKER_TAHMIN" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TAHMIN_TEST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEGER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ML_TEST_YUZDE" Type="int" Nullable="false" />
+          <Property Name="KAR" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="KAR_KEY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAKIM_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GOL_DENEMESI" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_KALEYI_BULAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_KALEYI_BULMAYAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KORNER" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TOPA_SAHIP_OLMA" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_ENGELLEME" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TOPLAM_KART" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="FRIKIK" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="OFSAYT" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GOL_KAFA" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GOL_AYAK" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="SARI_KART" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KIRMIZI_KART" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ATTIGI_GOL" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="YEDIGI_GOL" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_ETKISI" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ATILAN_PENALTI" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="KACAN_PENALTI" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GOL_YENMEYEN_MAC" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="TOPLAM_GOL_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="int" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GENEL_EV_0_1" Type="int" />
+          <Property Name="GENEL_EV_0_1_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_2_3" Type="int" />
+          <Property Name="GENEL_EV_2_3_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_4_6" Type="int" />
+          <Property Name="GENEL_EV_4_6_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_7_ARTI" Type="int" />
+          <Property Name="GENEL_EV_7_ARTI_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_0_1" Type="int" />
+          <Property Name="IC_DIS_EV_0_1_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_2_3" Type="int" />
+          <Property Name="IC_DIS_EV_2_3_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_4_6" Type="int" />
+          <Property Name="IC_DIS_EV_4_6_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_7_ARTI" Type="int" />
+          <Property Name="IC_DIS_EV_7_ARTI_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_0_1" Type="int" />
+          <Property Name="ARA_EV_0_1_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_2_3" Type="int" />
+          <Property Name="ARA_EV_2_3_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_4_6" Type="int" />
+          <Property Name="ARA_EV_4_6_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_7_ARTI" Type="int" />
+          <Property Name="ARA_EV_7_ARTI_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_0_1" Type="int" />
+          <Property Name="GENEL_DEP_0_1_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_2_3" Type="int" />
+          <Property Name="GENEL_DEP_2_3_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_4_6" Type="int" />
+          <Property Name="GENEL_DEP_4_6_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_7_ARTI" Type="int" />
+          <Property Name="GENEL_DEP_7_ARTI_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_0_1" Type="int" />
+          <Property Name="IC_DIS_DEP_0_1_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_2_3" Type="int" />
+          <Property Name="IC_DIS_DEP_2_3_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_4_6" Type="int" />
+          <Property Name="IC_DIS_DEP_4_6_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_7_ARTI" Type="int" />
+          <Property Name="IC_DIS_DEP_7_ARTI_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_0_1" Type="int" />
+          <Property Name="ARA_DEP_0_1_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_2_3" Type="int" />
+          <Property Name="ARA_DEP_2_3_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_4_6" Type="int" />
+          <Property Name="ARA_DEP_4_6_ORAN" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_7_ARTI" Type="int" />
+          <Property Name="ARA_DEP_7_ARTI_ORAN" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="IDDAA_ModelStoreContainer">
+          <EntitySet Name="ARALARINDA_SON_MAC" EntityType="Self.ARALARINDA_SON_MAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ARSIV" EntityType="Self.ARSIV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ATTRIBUTE_MIN_MAX_DEGER" EntityType="Self.ATTRIBUTE_MIN_MAX_DEGER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOKMAKER_BULTEN" EntityType="Self.BOOKMAKER_BULTEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOKMAKER_ODD" EntityType="Self.BOOKMAKER_ODD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BULTEN" EntityType="Self.BULTEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CANLI_ISTATISTIK" EntityType="Self.CANLI_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPLASMAN_SON_MAC" EntityType="Self.DEPLASMAN_SON_MAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EV_SAHIBI_SON_MAC" EntityType="Self.EV_SAHIBI_SON_MAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ILK_YARI_SONU_ISTATISTIK" EntityType="Self.ILK_YARI_SONU_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KG_VAR_YOK_ISTATISTIK" EntityType="Self.KG_VAR_YOK_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LIG_ISLEME" EntityType="Self.LIG_ISLEME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAC_SONU_ISTATISTIK" EntityType="Self.MAC_SONU_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MS25_ALT_UST_ISTATISTIK" EntityType="Self.MS25_ALT_UST_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OGRENME" EntityType="Self.OGRENME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OYUNCU_GOL_SAYISI" EntityType="Self.OYUNCU_GOL_SAYISI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARAMETRE" EntityType="Self.PARAMETRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POPULER_BAHIS" EntityType="Self.POPULER_BAHIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PUAN_DURUMU" EntityType="Self.PUAN_DURUMU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAKAT_CEZALI" EntityType="Self.SAKAT_CEZALI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAHMIN_ML" EntityType="Self.TAHMIN_ML" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAHMIN_ML_HEPSI" EntityType="Self.TAHMIN_ML_HEPSI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAHMIN_PROBABILITY" EntityType="Self.TAHMIN_PROBABILITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAHMIN_SONUC" EntityType="Self.TAHMIN_SONUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAHMIN_TEST" EntityType="Self.TAHMIN_TEST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAKIM_ISTATISTIK" EntityType="Self.TAKIM_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOPLAM_GOL_ISTATISTIK" EntityType="Self.TOPLAM_GOL_ISTATISTIK" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IDDAA_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ARALARINDA_SON_MAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_IY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_MS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ARSIV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="Int32" />
+          <Property Name="BETRADAR_ID" Type="Int32" />
+          <Property Name="UZAKLIK" Type="Int32" />
+          <Property Name="MBS" Type="Int32" />
+          <Property Name="SKOR_IY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SKOR_MS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MS_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MS_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MS_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KGV" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KGY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_2_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_IY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_IY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_1_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_1_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_2_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_2_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_3_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_3_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_0_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_2_3" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_4_6" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_7_ARTI" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="ATTRIBUTE_MIN_MAX_DEGER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ATTRIBUTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MIN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MAX" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="BOOKMAKER_BULTEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="Int32" />
+          <Property Name="BETRADAR_ID" Type="Int32" />
+          <Property Name="UZAKLIK" Type="Int32" />
+          <Property Name="MBS" Type="Int32" />
+          <Property Name="MS_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MS_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MS_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KGV" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KGY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_2_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_IY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_IY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_1_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_1_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_2_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_2_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_3_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_3_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_0_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_2_3" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_4_6" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_7_ARTI" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="BOOKMAKER_ODD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MS_1" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="MS_X" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="MS_2" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="ALT_2_5" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="UST_2_5" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="BETRADAR_ID" Type="Int32" />
+          <Property Name="MS_1_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MS_X_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MS_2_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ALT_2_5_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="UST_2_5_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="BULTEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDDAA_ID" Type="Int32" />
+          <Property Name="BETRADAR_ID" Type="Int32" />
+          <Property Name="UZAKLIK" Type="Int32" />
+          <Property Name="MBS" Type="Int32" />
+          <Property Name="MS_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MS_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="MS_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IY_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="H_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KGV" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KGY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_1_2" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="CIFT_2_X" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_IY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_IY" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_1_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_1_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_2_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_2_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ALT_3_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="UST_3_5" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_0_1" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_2_3" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_4_6" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TG_7_ARTI" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="CANLI_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="BETRADAR_ID" Type="Int32" Nullable="false" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DAKIKA" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_IY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SKOR_MS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TOPA_SAHIP_IY" Type="Int32" />
+          <Property Name="SARI_KART_IY" Type="Int32" />
+          <Property Name="KIRMIZI_KART_IY" Type="Int32" />
+          <Property Name="KORNER_IY" Type="Int32" />
+          <Property Name="FRIKIK_IY" Type="Int32" />
+          <Property Name="KALE_VURUS_IY" Type="Int32" />
+          <Property Name="TAC_IY" Type="Int32" />
+          <Property Name="OFSAYT_IY" Type="Int32" />
+          <Property Name="SUT_ISABET_IY" Type="Int32" />
+          <Property Name="SUT_ISABETSIZ_IY" Type="Int32" />
+          <Property Name="KURTARIS_IY" Type="Int32" />
+          <Property Name="FAUL_IY" Type="Int32" />
+          <Property Name="SUT_BLOK_IY" Type="Int32" />
+          <Property Name="GOL_DENEME_IY" Type="Int32" />
+          <Property Name="SAKAT_IY" Type="Int32" />
+          <Property Name="TOP_GUVENDE_IY" Type="Int32" />
+          <Property Name="HUCUM_IY" Type="Int32" />
+          <Property Name="TEHLIKELI_ATAK_IY" Type="Int32" />
+          <Property Name="TOPA_SAHIP_MS" Type="Int32" />
+          <Property Name="SARI_KART_MS" Type="Int32" />
+          <Property Name="KIRMIZI_KART_MS" Type="Int32" />
+          <Property Name="KORNER_MS" Type="Int32" />
+          <Property Name="FRIKIK_MS" Type="Int32" />
+          <Property Name="KALE_VURUS_MS" Type="Int32" />
+          <Property Name="TAC_MS" Type="Int32" />
+          <Property Name="OFSAYT_MS" Type="Int32" />
+          <Property Name="SUT_ISABET_MS" Type="Int32" />
+          <Property Name="SUT_ISABETSIZ_MS" Type="Int32" />
+          <Property Name="KURTARIS_MS" Type="Int32" />
+          <Property Name="FAUL_MS" Type="Int32" />
+          <Property Name="SUT_BLOK_MS" Type="Int32" />
+          <Property Name="GOL_DENEME_MS" Type="Int32" />
+          <Property Name="SAKAT_MS" Type="Int32" />
+          <Property Name="TOP_GUVENDE_MS" Type="Int32" />
+          <Property Name="HUCUM_MS" Type="Int32" />
+          <Property Name="TEHLIKELI_ATAK_MS" Type="Int32" />
+          <Property Name="TIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DEPLASMAN_SON_MAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_IY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_MS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SONUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EV_SAHIBI_SON_MAC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_IY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKOR_MS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SONUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ILK_YARI_SONU_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENEL_EV_GALIBIYET" Type="Int32" />
+          <Property Name="GENEL_EV_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_BERABER" Type="Int32" />
+          <Property Name="GENEL_EV_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_MAGLUBIYET" Type="Int32" />
+          <Property Name="GENEL_EV_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_GALIBIYET" Type="Int32" />
+          <Property Name="GENEL_DEP_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_BERABER" Type="Int32" />
+          <Property Name="GENEL_DEP_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_MAGLUBIYET" Type="Int32" />
+          <Property Name="GENEL_DEP_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_GALIBIYET" Type="Int32" />
+          <Property Name="IC_DIS_EV_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_BERABER" Type="Int32" />
+          <Property Name="IC_DIS_EV_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET" Type="Int32" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_GALIBIYET" Type="Int32" />
+          <Property Name="IC_DIS_DEP_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_BERABER" Type="Int32" />
+          <Property Name="IC_DIS_DEP_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET" Type="Int32" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_GALIBIYET" Type="Int32" />
+          <Property Name="ARA_EV_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_BERABER" Type="Int32" />
+          <Property Name="ARA_EV_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_MAGLUBIYET" Type="Int32" />
+          <Property Name="ARA_EV_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_GALIBIYET" Type="Int32" />
+          <Property Name="ARA_DEP_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_BERABER" Type="Int32" />
+          <Property Name="ARA_DEP_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_MAGLUBIYET" Type="Int32" />
+          <Property Name="ARA_DEP_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="KG_VAR_YOK_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENEL_EV_KGV" Type="Int32" />
+          <Property Name="GENEL_EV_KGV_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_KGY" Type="Int32" />
+          <Property Name="GENEL_EV_KGY_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_KGV" Type="Int32" />
+          <Property Name="IC_DIS_EV_KGV_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_KGY" Type="Int32" />
+          <Property Name="IC_DIS_EV_KGY_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_KGV" Type="Int32" />
+          <Property Name="ARA_EV_KGV_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_KGY" Type="Int32" />
+          <Property Name="ARA_EV_KGY_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_KGV" Type="Int32" />
+          <Property Name="GENEL_DEP_KGV_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_KGY" Type="Int32" />
+          <Property Name="GENEL_DEP_KGY_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_KGV" Type="Int32" />
+          <Property Name="IC_DIS_DEP_KGV_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_KGY" Type="Int32" />
+          <Property Name="IC_DIS_DEP_KGY_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_KGV" Type="Int32" />
+          <Property Name="ARA_DEP_KGV_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_KGY" Type="Int32" />
+          <Property Name="ARA_DEP_KGY_ORAN" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="MAC_SONU_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENEL_EV_GALIBIYET" Type="Int32" />
+          <Property Name="GENEL_EV_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_BERABER" Type="Int32" />
+          <Property Name="GENEL_EV_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_MAGLUBIYET" Type="Int32" />
+          <Property Name="GENEL_EV_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_GALIBIYET" Type="Int32" />
+          <Property Name="GENEL_DEP_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_BERABER" Type="Int32" />
+          <Property Name="GENEL_DEP_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_MAGLUBIYET" Type="Int32" />
+          <Property Name="GENEL_DEP_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_GALIBIYET" Type="Int32" />
+          <Property Name="IC_DIS_EV_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_BERABER" Type="Int32" />
+          <Property Name="IC_DIS_EV_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET" Type="Int32" />
+          <Property Name="IC_DIS_EV_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_GALIBIYET" Type="Int32" />
+          <Property Name="IC_DIS_DEP_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_BERABER" Type="Int32" />
+          <Property Name="IC_DIS_DEP_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET" Type="Int32" />
+          <Property Name="IC_DIS_DEP_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_GALIBIYET" Type="Int32" />
+          <Property Name="ARA_EV_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_BERABER" Type="Int32" />
+          <Property Name="ARA_EV_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_MAGLUBIYET" Type="Int32" />
+          <Property Name="ARA_EV_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_GALIBIYET" Type="Int32" />
+          <Property Name="ARA_DEP_GALIBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_BERABER" Type="Int32" />
+          <Property Name="ARA_DEP_BERABER_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_MAGLUBIYET" Type="Int32" />
+          <Property Name="ARA_DEP_MAGLUBIYET_ORAN" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="MS25_ALT_UST_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENEL_EV_ALT" Type="Int32" />
+          <Property Name="GENEL_EV_ALT_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_UST" Type="Int32" />
+          <Property Name="GENEL_EV_UST_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_ALT" Type="Int32" />
+          <Property Name="IC_DIS_EV_ALT_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_UST" Type="Int32" />
+          <Property Name="IC_DIS_EV_UST_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_ALT" Type="Int32" />
+          <Property Name="ARA_EV_ALT_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_UST" Type="Int32" />
+          <Property Name="ARA_EV_UST_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_ALT" Type="Int32" />
+          <Property Name="GENEL_DEP_ALT_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_UST" Type="Int32" />
+          <Property Name="GENEL_DEP_UST_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_ALT" Type="Int32" />
+          <Property Name="IC_DIS_DEP_ALT_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_UST" Type="Int32" />
+          <Property Name="IC_DIS_DEP_UST_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_ALT" Type="Int32" />
+          <Property Name="ARA_DEP_ALT_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_UST" Type="Int32" />
+          <Property Name="ARA_DEP_UST_ORAN" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="OGRENME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SONUC" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="TIPI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SONUC_REAL" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OYUNCU_GOL_SAYISI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OYUNCU_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GOL_SAYISI" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARAMETRE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEGER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AD_EK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="POPULER_BAHIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAC_TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="BETRADAR_ID" Type="Int32" Nullable="false" />
+          <Property Name="OYNANMA_SAYI" Type="Int32" Nullable="false" />
+          <Property Name="TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEGER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MBS" Type="Int32" Nullable="false" />
+          <Property Name="ORAN" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="SIRA" Type="Int32" />
+          <Property Name="MS_1_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MS_X_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MS_2_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ALT_2_5_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="UST_2_5_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="PUAN_DURUMU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENEL_SIRA" Type="Int32" />
+          <Property Name="GENEL_MAC_SAYISI" Type="Int32" />
+          <Property Name="GENEL_GALIBIYET" Type="Int32" />
+          <Property Name="GENEL_BERABERLIK" Type="Int32" />
+          <Property Name="GENEL_MAGLUBIYET" Type="Int32" />
+          <Property Name="GENEL_ATTIGI_GOL" Type="Int32" />
+          <Property Name="GENEL_YEDIGI_GOL" Type="Int32" />
+          <Property Name="GENEL_PUAN" Type="Int32" />
+          <Property Name="EV_SAHIBI_SIRA" Type="Int32" />
+          <Property Name="EV_SAHIBI_MAC_SAYISI" Type="Int32" />
+          <Property Name="EV_SAHIBI_GALIBIYET" Type="Int32" />
+          <Property Name="EV_SAHIBI_BERABERLIK" Type="Int32" />
+          <Property Name="EV_SAHIBI_MAGLUBIYET" Type="Int32" />
+          <Property Name="EV_SAHIBI_ATTIGI_GOL" Type="Int32" />
+          <Property Name="EV_SAHIBI_YEDIGI_GOL" Type="Int32" />
+          <Property Name="EV_SAHIBI_PUAN" Type="Int32" />
+          <Property Name="DEPLASMAN_SIRA" Type="Int32" />
+          <Property Name="DEPLASMAN_MAC_SAYISI" Type="Int32" />
+          <Property Name="DEPLASMAN_GALIBIYET" Type="Int32" />
+          <Property Name="DEPLASMAN_BERABERLIK" Type="Int32" />
+          <Property Name="DEPLASMAN_MAGLUBIYET" Type="Int32" />
+          <Property Name="DEPLASMAN_ATTIGI_GOL" Type="Int32" />
+          <Property Name="DEPLASMAN_YEDIGI_GOL" Type="Int32" />
+          <Property Name="DEPLASMAN_PUAN" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SAKAT_CEZALI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="POZISYON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAC_SAYISI" Type="Int32" />
+          <Property Name="ON_BIR_MAC_SAYISI" Type="Int32" />
+          <Property Name="GOL_SAYISI" Type="Int32" />
+          <Property Name="OYUNCU_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TAKIM_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="TAKIM_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GOL_DENEMESI" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_KALEYI_BULAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_KALEYI_BULMAYAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KORNER" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TOPA_SAHIP_OLMA" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_ENGELLEME" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TOPLAM_KART" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="FRIKIK" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="OFSAYT" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GOL_KAFA" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GOL_AYAK" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SARI_KART" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KIRMIZI_KART" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ATTIGI_GOL" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="YEDIGI_GOL" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SUT_ETKISI" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ATILAN_PENALTI" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="KACAN_PENALTI" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GOL_YENMEYEN_MAC" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="TOPLAM_GOL_ISTATISTIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EV_SAHIBI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPLASMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENEL_EV_0_1" Type="Int32" />
+          <Property Name="GENEL_EV_0_1_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_2_3" Type="Int32" />
+          <Property Name="GENEL_EV_2_3_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_4_6" Type="Int32" />
+          <Property Name="GENEL_EV_4_6_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_EV_7_ARTI" Type="Int32" />
+          <Property Name="GENEL_EV_7_ARTI_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_0_1" Type="Int32" />
+          <Property Name="IC_DIS_EV_0_1_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_2_3" Type="Int32" />
+          <Property Name="IC_DIS_EV_2_3_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_4_6" Type="Int32" />
+          <Property Name="IC_DIS_EV_4_6_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_EV_7_ARTI" Type="Int32" />
+          <Property Name="IC_DIS_EV_7_ARTI_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_0_1" Type="Int32" />
+          <Property Name="ARA_EV_0_1_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_2_3" Type="Int32" />
+          <Property Name="ARA_EV_2_3_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_4_6" Type="Int32" />
+          <Property Name="ARA_EV_4_6_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_EV_7_ARTI" Type="Int32" />
+          <Property Name="ARA_EV_7_ARTI_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_0_1" Type="Int32" />
+          <Property Name="GENEL_DEP_0_1_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_2_3" Type="Int32" />
+          <Property Name="GENEL_DEP_2_3_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_4_6" Type="Int32" />
+          <Property Name="GENEL_DEP_4_6_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="GENEL_DEP_7_ARTI" Type="Int32" />
+          <Property Name="GENEL_DEP_7_ARTI_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_0_1" Type="Int32" />
+          <Property Name="IC_DIS_DEP_0_1_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_2_3" Type="Int32" />
+          <Property Name="IC_DIS_DEP_2_3_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_4_6" Type="Int32" />
+          <Property Name="IC_DIS_DEP_4_6_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="IC_DIS_DEP_7_ARTI" Type="Int32" />
+          <Property Name="IC_DIS_DEP_7_ARTI_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_0_1" Type="Int32" />
+          <Property Name="ARA_DEP_0_1_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_2_3" Type="Int32" />
+          <Property Name="ARA_DEP_2_3_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_4_6" Type="Int32" />
+          <Property Name="ARA_DEP_4_6_ORAN" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ARA_DEP_7_ARTI" Type="Int32" />
+          <Property Name="ARA_DEP_7_ARTI_ORAN" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="IDDAA_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ARALARINDA_SON_MAC" EntityType="Self.ARALARINDA_SON_MAC" />
+          <EntitySet Name="ARSIV" EntityType="Self.ARSIV" />
+          <EntitySet Name="ATTRIBUTE_MIN_MAX_DEGER" EntityType="Self.ATTRIBUTE_MIN_MAX_DEGER" />
+          <EntitySet Name="BOOKMAKER_BULTEN" EntityType="Self.BOOKMAKER_BULTEN" />
+          <EntitySet Name="BOOKMAKER_ODD" EntityType="Self.BOOKMAKER_ODD" />
+          <EntitySet Name="BULTEN" EntityType="Self.BULTEN" />
+          <EntitySet Name="CANLI_ISTATISTIK" EntityType="Self.CANLI_ISTATISTIK" />
+          <EntitySet Name="DEPLASMAN_SON_MAC" EntityType="Self.DEPLASMAN_SON_MAC" />
+          <EntitySet Name="EV_SAHIBI_SON_MAC" EntityType="Self.EV_SAHIBI_SON_MAC" />
+          <EntitySet Name="ILK_YARI_SONU_ISTATISTIK" EntityType="Self.ILK_YARI_SONU_ISTATISTIK" />
+          <EntitySet Name="KG_VAR_YOK_ISTATISTIK" EntityType="Self.KG_VAR_YOK_ISTATISTIK" />
+          <EntitySet Name="MAC_SONU_ISTATISTIK" EntityType="Self.MAC_SONU_ISTATISTIK" />
+          <EntitySet Name="MS25_ALT_UST_ISTATISTIK" EntityType="Self.MS25_ALT_UST_ISTATISTIK" />
+          <EntitySet Name="OGRENME" EntityType="Self.OGRENME" />
+          <EntitySet Name="OYUNCU_GOL_SAYISI" EntityType="Self.OYUNCU_GOL_SAYISI" />
+          <EntitySet Name="PARAMETRE" EntityType="Self.PARAMETRE" />
+          <EntitySet Name="POPULER_BAHIS" EntityType="Self.POPULER_BAHIS" />
+          <EntitySet Name="PUAN_DURUMU" EntityType="Self.PUAN_DURUMU" />
+          <EntitySet Name="SAKAT_CEZALI" EntityType="Self.SAKAT_CEZALI" />
+          <EntitySet Name="TAKIM_ISTATISTIK" EntityType="Self.TAKIM_ISTATISTIK" />
+          <EntitySet Name="TOPLAM_GOL_ISTATISTIK" EntityType="Self.TOPLAM_GOL_ISTATISTIK" />
+          <EntitySet Name="TAHMIN_ML" EntityType="IDDAA_Model.TAHMIN_ML" />
+          <EntitySet Name="TAHMIN_SONUC" EntityType="IDDAA_Model.TAHMIN_SONUC" />
+          <EntitySet Name="TAHMIN_TEST" EntityType="IDDAA_Model.TAHMIN_TEST" />
+          <EntitySet Name="TAHMIN_ML_HEPSI" EntityType="IDDAA_Model.TAHMIN_ML_HEPSI" />
+          <EntitySet Name="TAHMIN_PROBABILITY" EntityType="IDDAA_Model.TAHMIN_PROBABILITY" />
+          <EntitySet Name="LIG_ISLEME" EntityType="IDDAA_Model.LIG_ISLEME" />
+        </EntityContainer>
+        <EntityType Name="TAHMIN_ML">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EV_SAHIBI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEPLASMAN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEGER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDDAA_ORAN" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="ML_TAHMIN_YUZDE" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="ML_TEST_YUZDE" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="Decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="TAHMIN_SONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EV_SAHIBI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEPLASMAN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEGER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="POPULER_MAC_MI" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OYNANMA_YUZDE_MAX_MI" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="BOOKMAKER_AZALIYOR_MU" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OYNANDI_MI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ML_TAHMIN_YUZDE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="BOOKMAKER_TAHMIN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TAHMIN_TEST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEGER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ML_TEST_YUZDE" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="KAR_KEY" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAHMIN_ML_HEPSI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EV_SAHIBI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEPLASMAN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDDAA_ID" Type="Int32" Nullable="false" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEGER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDDAA_ORAN" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="ML_TAHMIN_YUZDE" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="TAHMIN_PROBABILITY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DEGER" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PROB_ORAN" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="LIG_ISLEME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIRA" Type="Int32" Nullable="false" />
+          <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BASLADI" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="BITTI" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IDDAA_ModelStoreContainer" CdmEntityContainer="IDDAA_Entities">
+          <EntitySetMapping Name="ARALARINDA_SON_MAC">
+            <EntityTypeMapping TypeName="IDDAA_Model.ARALARINDA_SON_MAC">
+              <MappingFragment StoreEntitySet="ARALARINDA_SON_MAC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="SKOR_IY" ColumnName="SKOR_IY" />
+                <ScalarProperty Name="SKOR_MS" ColumnName="SKOR_MS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ARSIV">
+            <EntityTypeMapping TypeName="IDDAA_Model.ARSIV">
+              <MappingFragment StoreEntitySet="ARSIV">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="BETRADAR_ID" ColumnName="BETRADAR_ID" />
+                <ScalarProperty Name="UZAKLIK" ColumnName="UZAKLIK" />
+                <ScalarProperty Name="MBS" ColumnName="MBS" />
+                <ScalarProperty Name="SKOR_IY" ColumnName="SKOR_IY" />
+                <ScalarProperty Name="SKOR_MS" ColumnName="SKOR_MS" />
+                <ScalarProperty Name="MS_1" ColumnName="MS_1" />
+                <ScalarProperty Name="MS_X" ColumnName="MS_X" />
+                <ScalarProperty Name="MS_2" ColumnName="MS_2" />
+                <ScalarProperty Name="IY_1" ColumnName="IY_1" />
+                <ScalarProperty Name="IY_X" ColumnName="IY_X" />
+                <ScalarProperty Name="IY_2" ColumnName="IY_2" />
+                <ScalarProperty Name="H_1" ColumnName="H_1" />
+                <ScalarProperty Name="H_X" ColumnName="H_X" />
+                <ScalarProperty Name="H_2" ColumnName="H_2" />
+                <ScalarProperty Name="KGV" ColumnName="KGV" />
+                <ScalarProperty Name="KGY" ColumnName="KGY" />
+                <ScalarProperty Name="CIFT_1_X" ColumnName="CIFT_1_X" />
+                <ScalarProperty Name="CIFT_1_2" ColumnName="CIFT_1_2" />
+                <ScalarProperty Name="CIFT_2_X" ColumnName="CIFT_2_X" />
+                <ScalarProperty Name="ALT_IY" ColumnName="ALT_IY" />
+                <ScalarProperty Name="UST_IY" ColumnName="UST_IY" />
+                <ScalarProperty Name="ALT_1_5" ColumnName="ALT_1_5" />
+                <ScalarProperty Name="UST_1_5" ColumnName="UST_1_5" />
+                <ScalarProperty Name="ALT_2_5" ColumnName="ALT_2_5" />
+                <ScalarProperty Name="UST_2_5" ColumnName="UST_2_5" />
+                <ScalarProperty Name="ALT_3_5" ColumnName="ALT_3_5" />
+                <ScalarProperty Name="UST_3_5" ColumnName="UST_3_5" />
+                <ScalarProperty Name="TG_0_1" ColumnName="TG_0_1" />
+                <ScalarProperty Name="TG_2_3" ColumnName="TG_2_3" />
+                <ScalarProperty Name="TG_4_6" ColumnName="TG_4_6" />
+                <ScalarProperty Name="TG_7_ARTI" ColumnName="TG_7_ARTI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ATTRIBUTE_MIN_MAX_DEGER">
+            <EntityTypeMapping TypeName="IDDAA_Model.ATTRIBUTE_MIN_MAX_DEGER">
+              <MappingFragment StoreEntitySet="ATTRIBUTE_MIN_MAX_DEGER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ATTRIBUTE" ColumnName="ATTRIBUTE" />
+                <ScalarProperty Name="MIN" ColumnName="MIN" />
+                <ScalarProperty Name="MAX" ColumnName="MAX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKMAKER_BULTEN">
+            <EntityTypeMapping TypeName="IDDAA_Model.BOOKMAKER_BULTEN">
+              <MappingFragment StoreEntitySet="BOOKMAKER_BULTEN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="BETRADAR_ID" ColumnName="BETRADAR_ID" />
+                <ScalarProperty Name="UZAKLIK" ColumnName="UZAKLIK" />
+                <ScalarProperty Name="MBS" ColumnName="MBS" />
+                <ScalarProperty Name="MS_1" ColumnName="MS_1" />
+                <ScalarProperty Name="MS_X" ColumnName="MS_X" />
+                <ScalarProperty Name="MS_2" ColumnName="MS_2" />
+                <ScalarProperty Name="IY_1" ColumnName="IY_1" />
+                <ScalarProperty Name="IY_X" ColumnName="IY_X" />
+                <ScalarProperty Name="IY_2" ColumnName="IY_2" />
+                <ScalarProperty Name="H_1" ColumnName="H_1" />
+                <ScalarProperty Name="H_X" ColumnName="H_X" />
+                <ScalarProperty Name="H_2" ColumnName="H_2" />
+                <ScalarProperty Name="KGV" ColumnName="KGV" />
+                <ScalarProperty Name="KGY" ColumnName="KGY" />
+                <ScalarProperty Name="CIFT_1_X" ColumnName="CIFT_1_X" />
+                <ScalarProperty Name="CIFT_1_2" ColumnName="CIFT_1_2" />
+                <ScalarProperty Name="CIFT_2_X" ColumnName="CIFT_2_X" />
+                <ScalarProperty Name="ALT_IY" ColumnName="ALT_IY" />
+                <ScalarProperty Name="UST_IY" ColumnName="UST_IY" />
+                <ScalarProperty Name="ALT_1_5" ColumnName="ALT_1_5" />
+                <ScalarProperty Name="UST_1_5" ColumnName="UST_1_5" />
+                <ScalarProperty Name="ALT_2_5" ColumnName="ALT_2_5" />
+                <ScalarProperty Name="UST_2_5" ColumnName="UST_2_5" />
+                <ScalarProperty Name="ALT_3_5" ColumnName="ALT_3_5" />
+                <ScalarProperty Name="UST_3_5" ColumnName="UST_3_5" />
+                <ScalarProperty Name="TG_0_1" ColumnName="TG_0_1" />
+                <ScalarProperty Name="TG_2_3" ColumnName="TG_2_3" />
+                <ScalarProperty Name="TG_4_6" ColumnName="TG_4_6" />
+                <ScalarProperty Name="TG_7_ARTI" ColumnName="TG_7_ARTI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKMAKER_ODD">
+            <EntityTypeMapping TypeName="IDDAA_Model.BOOKMAKER_ODD">
+              <MappingFragment StoreEntitySet="BOOKMAKER_ODD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="MS_1" ColumnName="MS_1" />
+                <ScalarProperty Name="MS_X" ColumnName="MS_X" />
+                <ScalarProperty Name="MS_2" ColumnName="MS_2" />
+                <ScalarProperty Name="ALT_2_5" ColumnName="ALT_2_5" />
+                <ScalarProperty Name="UST_2_5" ColumnName="UST_2_5" />
+                <ScalarProperty Name="BETRADAR_ID" ColumnName="BETRADAR_ID" />
+                <ScalarProperty Name="MS_1_IDDAA" ColumnName="MS_1_IDDAA" />
+                <ScalarProperty Name="MS_X_IDDAA" ColumnName="MS_X_IDDAA" />
+                <ScalarProperty Name="MS_2_IDDAA" ColumnName="MS_2_IDDAA" />
+                <ScalarProperty Name="ALT_2_5_IDDAA" ColumnName="ALT_2_5_IDDAA" />
+                <ScalarProperty Name="UST_2_5_IDDAA" ColumnName="UST_2_5_IDDAA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BULTEN">
+            <EntityTypeMapping TypeName="IDDAA_Model.BULTEN">
+              <MappingFragment StoreEntitySet="BULTEN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="BETRADAR_ID" ColumnName="BETRADAR_ID" />
+                <ScalarProperty Name="UZAKLIK" ColumnName="UZAKLIK" />
+                <ScalarProperty Name="MBS" ColumnName="MBS" />
+                <ScalarProperty Name="MS_1" ColumnName="MS_1" />
+                <ScalarProperty Name="MS_X" ColumnName="MS_X" />
+                <ScalarProperty Name="MS_2" ColumnName="MS_2" />
+                <ScalarProperty Name="IY_1" ColumnName="IY_1" />
+                <ScalarProperty Name="IY_X" ColumnName="IY_X" />
+                <ScalarProperty Name="IY_2" ColumnName="IY_2" />
+                <ScalarProperty Name="H_1" ColumnName="H_1" />
+                <ScalarProperty Name="H_X" ColumnName="H_X" />
+                <ScalarProperty Name="H_2" ColumnName="H_2" />
+                <ScalarProperty Name="KGV" ColumnName="KGV" />
+                <ScalarProperty Name="KGY" ColumnName="KGY" />
+                <ScalarProperty Name="CIFT_1_X" ColumnName="CIFT_1_X" />
+                <ScalarProperty Name="CIFT_1_2" ColumnName="CIFT_1_2" />
+                <ScalarProperty Name="CIFT_2_X" ColumnName="CIFT_2_X" />
+                <ScalarProperty Name="ALT_IY" ColumnName="ALT_IY" />
+                <ScalarProperty Name="UST_IY" ColumnName="UST_IY" />
+                <ScalarProperty Name="ALT_1_5" ColumnName="ALT_1_5" />
+                <ScalarProperty Name="UST_1_5" ColumnName="UST_1_5" />
+                <ScalarProperty Name="ALT_2_5" ColumnName="ALT_2_5" />
+                <ScalarProperty Name="UST_2_5" ColumnName="UST_2_5" />
+                <ScalarProperty Name="ALT_3_5" ColumnName="ALT_3_5" />
+                <ScalarProperty Name="UST_3_5" ColumnName="UST_3_5" />
+                <ScalarProperty Name="TG_0_1" ColumnName="TG_0_1" />
+                <ScalarProperty Name="TG_2_3" ColumnName="TG_2_3" />
+                <ScalarProperty Name="TG_4_6" ColumnName="TG_4_6" />
+                <ScalarProperty Name="TG_7_ARTI" ColumnName="TG_7_ARTI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CANLI_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.CANLI_ISTATISTIK">
+              <MappingFragment StoreEntitySet="CANLI_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="BETRADAR_ID" ColumnName="BETRADAR_ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="DAKIKA" ColumnName="DAKIKA" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="SKOR" ColumnName="SKOR" />
+                <ScalarProperty Name="SKOR_IY" ColumnName="SKOR_IY" />
+                <ScalarProperty Name="SKOR_MS" ColumnName="SKOR_MS" />
+                <ScalarProperty Name="TOPA_SAHIP_IY" ColumnName="TOPA_SAHIP_IY" />
+                <ScalarProperty Name="SARI_KART_IY" ColumnName="SARI_KART_IY" />
+                <ScalarProperty Name="KIRMIZI_KART_IY" ColumnName="KIRMIZI_KART_IY" />
+                <ScalarProperty Name="KORNER_IY" ColumnName="KORNER_IY" />
+                <ScalarProperty Name="FRIKIK_IY" ColumnName="FRIKIK_IY" />
+                <ScalarProperty Name="KALE_VURUS_IY" ColumnName="KALE_VURUS_IY" />
+                <ScalarProperty Name="TAC_IY" ColumnName="TAC_IY" />
+                <ScalarProperty Name="OFSAYT_IY" ColumnName="OFSAYT_IY" />
+                <ScalarProperty Name="SUT_ISABET_IY" ColumnName="SUT_ISABET_IY" />
+                <ScalarProperty Name="SUT_ISABETSIZ_IY" ColumnName="SUT_ISABETSIZ_IY" />
+                <ScalarProperty Name="KURTARIS_IY" ColumnName="KURTARIS_IY" />
+                <ScalarProperty Name="FAUL_IY" ColumnName="FAUL_IY" />
+                <ScalarProperty Name="SUT_BLOK_IY" ColumnName="SUT_BLOK_IY" />
+                <ScalarProperty Name="GOL_DENEME_IY" ColumnName="GOL_DENEME_IY" />
+                <ScalarProperty Name="SAKAT_IY" ColumnName="SAKAT_IY" />
+                <ScalarProperty Name="TOP_GUVENDE_IY" ColumnName="TOP_GUVENDE_IY" />
+                <ScalarProperty Name="HUCUM_IY" ColumnName="HUCUM_IY" />
+                <ScalarProperty Name="TEHLIKELI_ATAK_IY" ColumnName="TEHLIKELI_ATAK_IY" />
+                <ScalarProperty Name="TOPA_SAHIP_MS" ColumnName="TOPA_SAHIP_MS" />
+                <ScalarProperty Name="SARI_KART_MS" ColumnName="SARI_KART_MS" />
+                <ScalarProperty Name="KIRMIZI_KART_MS" ColumnName="KIRMIZI_KART_MS" />
+                <ScalarProperty Name="KORNER_MS" ColumnName="KORNER_MS" />
+                <ScalarProperty Name="FRIKIK_MS" ColumnName="FRIKIK_MS" />
+                <ScalarProperty Name="KALE_VURUS_MS" ColumnName="KALE_VURUS_MS" />
+                <ScalarProperty Name="TAC_MS" ColumnName="TAC_MS" />
+                <ScalarProperty Name="OFSAYT_MS" ColumnName="OFSAYT_MS" />
+                <ScalarProperty Name="SUT_ISABET_MS" ColumnName="SUT_ISABET_MS" />
+                <ScalarProperty Name="SUT_ISABETSIZ_MS" ColumnName="SUT_ISABETSIZ_MS" />
+                <ScalarProperty Name="KURTARIS_MS" ColumnName="KURTARIS_MS" />
+                <ScalarProperty Name="FAUL_MS" ColumnName="FAUL_MS" />
+                <ScalarProperty Name="SUT_BLOK_MS" ColumnName="SUT_BLOK_MS" />
+                <ScalarProperty Name="GOL_DENEME_MS" ColumnName="GOL_DENEME_MS" />
+                <ScalarProperty Name="SAKAT_MS" ColumnName="SAKAT_MS" />
+                <ScalarProperty Name="TOP_GUVENDE_MS" ColumnName="TOP_GUVENDE_MS" />
+                <ScalarProperty Name="HUCUM_MS" ColumnName="HUCUM_MS" />
+                <ScalarProperty Name="TEHLIKELI_ATAK_MS" ColumnName="TEHLIKELI_ATAK_MS" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPLASMAN_SON_MAC">
+            <EntityTypeMapping TypeName="IDDAA_Model.DEPLASMAN_SON_MAC">
+              <MappingFragment StoreEntitySet="DEPLASMAN_SON_MAC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="SKOR_IY" ColumnName="SKOR_IY" />
+                <ScalarProperty Name="SKOR_MS" ColumnName="SKOR_MS" />
+                <ScalarProperty Name="SONUC" ColumnName="SONUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EV_SAHIBI_SON_MAC">
+            <EntityTypeMapping TypeName="IDDAA_Model.EV_SAHIBI_SON_MAC">
+              <MappingFragment StoreEntitySet="EV_SAHIBI_SON_MAC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="SKOR_IY" ColumnName="SKOR_IY" />
+                <ScalarProperty Name="SKOR_MS" ColumnName="SKOR_MS" />
+                <ScalarProperty Name="SONUC" ColumnName="SONUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ILK_YARI_SONU_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.ILK_YARI_SONU_ISTATISTIK">
+              <MappingFragment StoreEntitySet="ILK_YARI_SONU_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="GENEL_EV_GALIBIYET" ColumnName="GENEL_EV_GALIBIYET" />
+                <ScalarProperty Name="GENEL_EV_GALIBIYET_ORAN" ColumnName="GENEL_EV_GALIBIYET_ORAN" />
+                <ScalarProperty Name="GENEL_EV_BERABER" ColumnName="GENEL_EV_BERABER" />
+                <ScalarProperty Name="GENEL_EV_BERABER_ORAN" ColumnName="GENEL_EV_BERABER_ORAN" />
+                <ScalarProperty Name="GENEL_EV_MAGLUBIYET" ColumnName="GENEL_EV_MAGLUBIYET" />
+                <ScalarProperty Name="GENEL_EV_MAGLUBIYET_ORAN" ColumnName="GENEL_EV_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_GALIBIYET" ColumnName="GENEL_DEP_GALIBIYET" />
+                <ScalarProperty Name="GENEL_DEP_GALIBIYET_ORAN" ColumnName="GENEL_DEP_GALIBIYET_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_BERABER" ColumnName="GENEL_DEP_BERABER" />
+                <ScalarProperty Name="GENEL_DEP_BERABER_ORAN" ColumnName="GENEL_DEP_BERABER_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_MAGLUBIYET" ColumnName="GENEL_DEP_MAGLUBIYET" />
+                <ScalarProperty Name="GENEL_DEP_MAGLUBIYET_ORAN" ColumnName="GENEL_DEP_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_GALIBIYET" ColumnName="IC_DIS_EV_GALIBIYET" />
+                <ScalarProperty Name="IC_DIS_EV_GALIBIYET_ORAN" ColumnName="IC_DIS_EV_GALIBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_BERABER" ColumnName="IC_DIS_EV_BERABER" />
+                <ScalarProperty Name="IC_DIS_EV_BERABER_ORAN" ColumnName="IC_DIS_EV_BERABER_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_MAGLUBIYET" ColumnName="IC_DIS_EV_MAGLUBIYET" />
+                <ScalarProperty Name="IC_DIS_EV_MAGLUBIYET_ORAN" ColumnName="IC_DIS_EV_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_GALIBIYET" ColumnName="IC_DIS_DEP_GALIBIYET" />
+                <ScalarProperty Name="IC_DIS_DEP_GALIBIYET_ORAN" ColumnName="IC_DIS_DEP_GALIBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_BERABER" ColumnName="IC_DIS_DEP_BERABER" />
+                <ScalarProperty Name="IC_DIS_DEP_BERABER_ORAN" ColumnName="IC_DIS_DEP_BERABER_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_MAGLUBIYET" ColumnName="IC_DIS_DEP_MAGLUBIYET" />
+                <ScalarProperty Name="IC_DIS_DEP_MAGLUBIYET_ORAN" ColumnName="IC_DIS_DEP_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="ARA_EV_GALIBIYET" ColumnName="ARA_EV_GALIBIYET" />
+                <ScalarProperty Name="ARA_EV_GALIBIYET_ORAN" ColumnName="ARA_EV_GALIBIYET_ORAN" />
+                <ScalarProperty Name="ARA_EV_BERABER" ColumnName="ARA_EV_BERABER" />
+                <ScalarProperty Name="ARA_EV_BERABER_ORAN" ColumnName="ARA_EV_BERABER_ORAN" />
+                <ScalarProperty Name="ARA_EV_MAGLUBIYET" ColumnName="ARA_EV_MAGLUBIYET" />
+                <ScalarProperty Name="ARA_EV_MAGLUBIYET_ORAN" ColumnName="ARA_EV_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="ARA_DEP_GALIBIYET" ColumnName="ARA_DEP_GALIBIYET" />
+                <ScalarProperty Name="ARA_DEP_GALIBIYET_ORAN" ColumnName="ARA_DEP_GALIBIYET_ORAN" />
+                <ScalarProperty Name="ARA_DEP_BERABER" ColumnName="ARA_DEP_BERABER" />
+                <ScalarProperty Name="ARA_DEP_BERABER_ORAN" ColumnName="ARA_DEP_BERABER_ORAN" />
+                <ScalarProperty Name="ARA_DEP_MAGLUBIYET" ColumnName="ARA_DEP_MAGLUBIYET" />
+                <ScalarProperty Name="ARA_DEP_MAGLUBIYET_ORAN" ColumnName="ARA_DEP_MAGLUBIYET_ORAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KG_VAR_YOK_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.KG_VAR_YOK_ISTATISTIK">
+              <MappingFragment StoreEntitySet="KG_VAR_YOK_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="GENEL_EV_KGV" ColumnName="GENEL_EV_KGV" />
+                <ScalarProperty Name="GENEL_EV_KGV_ORAN" ColumnName="GENEL_EV_KGV_ORAN" />
+                <ScalarProperty Name="GENEL_EV_KGY" ColumnName="GENEL_EV_KGY" />
+                <ScalarProperty Name="GENEL_EV_KGY_ORAN" ColumnName="GENEL_EV_KGY_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_KGV" ColumnName="IC_DIS_EV_KGV" />
+                <ScalarProperty Name="IC_DIS_EV_KGV_ORAN" ColumnName="IC_DIS_EV_KGV_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_KGY" ColumnName="IC_DIS_EV_KGY" />
+                <ScalarProperty Name="IC_DIS_EV_KGY_ORAN" ColumnName="IC_DIS_EV_KGY_ORAN" />
+                <ScalarProperty Name="ARA_EV_KGV" ColumnName="ARA_EV_KGV" />
+                <ScalarProperty Name="ARA_EV_KGV_ORAN" ColumnName="ARA_EV_KGV_ORAN" />
+                <ScalarProperty Name="ARA_EV_KGY" ColumnName="ARA_EV_KGY" />
+                <ScalarProperty Name="ARA_EV_KGY_ORAN" ColumnName="ARA_EV_KGY_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_KGV" ColumnName="GENEL_DEP_KGV" />
+                <ScalarProperty Name="GENEL_DEP_KGV_ORAN" ColumnName="GENEL_DEP_KGV_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_KGY" ColumnName="GENEL_DEP_KGY" />
+                <ScalarProperty Name="GENEL_DEP_KGY_ORAN" ColumnName="GENEL_DEP_KGY_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_KGV" ColumnName="IC_DIS_DEP_KGV" />
+                <ScalarProperty Name="IC_DIS_DEP_KGV_ORAN" ColumnName="IC_DIS_DEP_KGV_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_KGY" ColumnName="IC_DIS_DEP_KGY" />
+                <ScalarProperty Name="IC_DIS_DEP_KGY_ORAN" ColumnName="IC_DIS_DEP_KGY_ORAN" />
+                <ScalarProperty Name="ARA_DEP_KGV" ColumnName="ARA_DEP_KGV" />
+                <ScalarProperty Name="ARA_DEP_KGV_ORAN" ColumnName="ARA_DEP_KGV_ORAN" />
+                <ScalarProperty Name="ARA_DEP_KGY" ColumnName="ARA_DEP_KGY" />
+                <ScalarProperty Name="ARA_DEP_KGY_ORAN" ColumnName="ARA_DEP_KGY_ORAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAC_SONU_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.MAC_SONU_ISTATISTIK">
+              <MappingFragment StoreEntitySet="MAC_SONU_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="GENEL_EV_GALIBIYET" ColumnName="GENEL_EV_GALIBIYET" />
+                <ScalarProperty Name="GENEL_EV_GALIBIYET_ORAN" ColumnName="GENEL_EV_GALIBIYET_ORAN" />
+                <ScalarProperty Name="GENEL_EV_BERABER" ColumnName="GENEL_EV_BERABER" />
+                <ScalarProperty Name="GENEL_EV_BERABER_ORAN" ColumnName="GENEL_EV_BERABER_ORAN" />
+                <ScalarProperty Name="GENEL_EV_MAGLUBIYET" ColumnName="GENEL_EV_MAGLUBIYET" />
+                <ScalarProperty Name="GENEL_EV_MAGLUBIYET_ORAN" ColumnName="GENEL_EV_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_GALIBIYET" ColumnName="GENEL_DEP_GALIBIYET" />
+                <ScalarProperty Name="GENEL_DEP_GALIBIYET_ORAN" ColumnName="GENEL_DEP_GALIBIYET_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_BERABER" ColumnName="GENEL_DEP_BERABER" />
+                <ScalarProperty Name="GENEL_DEP_BERABER_ORAN" ColumnName="GENEL_DEP_BERABER_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_MAGLUBIYET" ColumnName="GENEL_DEP_MAGLUBIYET" />
+                <ScalarProperty Name="GENEL_DEP_MAGLUBIYET_ORAN" ColumnName="GENEL_DEP_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_GALIBIYET" ColumnName="IC_DIS_EV_GALIBIYET" />
+                <ScalarProperty Name="IC_DIS_EV_GALIBIYET_ORAN" ColumnName="IC_DIS_EV_GALIBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_BERABER" ColumnName="IC_DIS_EV_BERABER" />
+                <ScalarProperty Name="IC_DIS_EV_BERABER_ORAN" ColumnName="IC_DIS_EV_BERABER_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_MAGLUBIYET" ColumnName="IC_DIS_EV_MAGLUBIYET" />
+                <ScalarProperty Name="IC_DIS_EV_MAGLUBIYET_ORAN" ColumnName="IC_DIS_EV_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_GALIBIYET" ColumnName="IC_DIS_DEP_GALIBIYET" />
+                <ScalarProperty Name="IC_DIS_DEP_GALIBIYET_ORAN" ColumnName="IC_DIS_DEP_GALIBIYET_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_BERABER" ColumnName="IC_DIS_DEP_BERABER" />
+                <ScalarProperty Name="IC_DIS_DEP_BERABER_ORAN" ColumnName="IC_DIS_DEP_BERABER_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_MAGLUBIYET" ColumnName="IC_DIS_DEP_MAGLUBIYET" />
+                <ScalarProperty Name="IC_DIS_DEP_MAGLUBIYET_ORAN" ColumnName="IC_DIS_DEP_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="ARA_EV_GALIBIYET" ColumnName="ARA_EV_GALIBIYET" />
+                <ScalarProperty Name="ARA_EV_GALIBIYET_ORAN" ColumnName="ARA_EV_GALIBIYET_ORAN" />
+                <ScalarProperty Name="ARA_EV_BERABER" ColumnName="ARA_EV_BERABER" />
+                <ScalarProperty Name="ARA_EV_BERABER_ORAN" ColumnName="ARA_EV_BERABER_ORAN" />
+                <ScalarProperty Name="ARA_EV_MAGLUBIYET" ColumnName="ARA_EV_MAGLUBIYET" />
+                <ScalarProperty Name="ARA_EV_MAGLUBIYET_ORAN" ColumnName="ARA_EV_MAGLUBIYET_ORAN" />
+                <ScalarProperty Name="ARA_DEP_GALIBIYET" ColumnName="ARA_DEP_GALIBIYET" />
+                <ScalarProperty Name="ARA_DEP_GALIBIYET_ORAN" ColumnName="ARA_DEP_GALIBIYET_ORAN" />
+                <ScalarProperty Name="ARA_DEP_BERABER" ColumnName="ARA_DEP_BERABER" />
+                <ScalarProperty Name="ARA_DEP_BERABER_ORAN" ColumnName="ARA_DEP_BERABER_ORAN" />
+                <ScalarProperty Name="ARA_DEP_MAGLUBIYET" ColumnName="ARA_DEP_MAGLUBIYET" />
+                <ScalarProperty Name="ARA_DEP_MAGLUBIYET_ORAN" ColumnName="ARA_DEP_MAGLUBIYET_ORAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MS25_ALT_UST_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.MS25_ALT_UST_ISTATISTIK">
+              <MappingFragment StoreEntitySet="MS25_ALT_UST_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="GENEL_EV_ALT" ColumnName="GENEL_EV_ALT" />
+                <ScalarProperty Name="GENEL_EV_ALT_ORAN" ColumnName="GENEL_EV_ALT_ORAN" />
+                <ScalarProperty Name="GENEL_EV_UST" ColumnName="GENEL_EV_UST" />
+                <ScalarProperty Name="GENEL_EV_UST_ORAN" ColumnName="GENEL_EV_UST_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_ALT" ColumnName="IC_DIS_EV_ALT" />
+                <ScalarProperty Name="IC_DIS_EV_ALT_ORAN" ColumnName="IC_DIS_EV_ALT_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_UST" ColumnName="IC_DIS_EV_UST" />
+                <ScalarProperty Name="IC_DIS_EV_UST_ORAN" ColumnName="IC_DIS_EV_UST_ORAN" />
+                <ScalarProperty Name="ARA_EV_ALT" ColumnName="ARA_EV_ALT" />
+                <ScalarProperty Name="ARA_EV_ALT_ORAN" ColumnName="ARA_EV_ALT_ORAN" />
+                <ScalarProperty Name="ARA_EV_UST" ColumnName="ARA_EV_UST" />
+                <ScalarProperty Name="ARA_EV_UST_ORAN" ColumnName="ARA_EV_UST_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_ALT" ColumnName="GENEL_DEP_ALT" />
+                <ScalarProperty Name="GENEL_DEP_ALT_ORAN" ColumnName="GENEL_DEP_ALT_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_UST" ColumnName="GENEL_DEP_UST" />
+                <ScalarProperty Name="GENEL_DEP_UST_ORAN" ColumnName="GENEL_DEP_UST_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_ALT" ColumnName="IC_DIS_DEP_ALT" />
+                <ScalarProperty Name="IC_DIS_DEP_ALT_ORAN" ColumnName="IC_DIS_DEP_ALT_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_UST" ColumnName="IC_DIS_DEP_UST" />
+                <ScalarProperty Name="IC_DIS_DEP_UST_ORAN" ColumnName="IC_DIS_DEP_UST_ORAN" />
+                <ScalarProperty Name="ARA_DEP_ALT" ColumnName="ARA_DEP_ALT" />
+                <ScalarProperty Name="ARA_DEP_ALT_ORAN" ColumnName="ARA_DEP_ALT_ORAN" />
+                <ScalarProperty Name="ARA_DEP_UST" ColumnName="ARA_DEP_UST" />
+                <ScalarProperty Name="ARA_DEP_UST_ORAN" ColumnName="ARA_DEP_UST_ORAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OGRENME">
+            <EntityTypeMapping TypeName="IDDAA_Model.OGRENME">
+              <MappingFragment StoreEntitySet="OGRENME">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="SONUC" ColumnName="SONUC" />
+                <ScalarProperty Name="TIPI" ColumnName="TIPI" />
+                <ScalarProperty Name="SONUC_REAL" ColumnName="SONUC_REAL" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OYUNCU_GOL_SAYISI">
+            <EntityTypeMapping TypeName="IDDAA_Model.OYUNCU_GOL_SAYISI">
+              <MappingFragment StoreEntitySet="OYUNCU_GOL_SAYISI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TAKIM_ADI" ColumnName="TAKIM_ADI" />
+                <ScalarProperty Name="OYUNCU_ADI" ColumnName="OYUNCU_ADI" />
+                <ScalarProperty Name="GOL_SAYISI" ColumnName="GOL_SAYISI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARAMETRE">
+            <EntityTypeMapping TypeName="IDDAA_Model.PARAMETRE">
+              <MappingFragment StoreEntitySet="PARAMETRE">
+                <ScalarProperty Name="AD_EK" ColumnName="AD_EK" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POPULER_BAHIS">
+            <EntityTypeMapping TypeName="IDDAA_Model.POPULER_BAHIS">
+              <MappingFragment StoreEntitySet="POPULER_BAHIS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="MAC_TARIH" ColumnName="MAC_TARIH" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="BETRADAR_ID" ColumnName="BETRADAR_ID" />
+                <ScalarProperty Name="OYNANMA_SAYI" ColumnName="OYNANMA_SAYI" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+                <ScalarProperty Name="MBS" ColumnName="MBS" />
+                <ScalarProperty Name="ORAN" ColumnName="ORAN" />
+                <ScalarProperty Name="SIRA" ColumnName="SIRA" />
+                <ScalarProperty Name="MS_1_IDDAA" ColumnName="MS_1_IDDAA" />
+                <ScalarProperty Name="MS_X_IDDAA" ColumnName="MS_X_IDDAA" />
+                <ScalarProperty Name="MS_2_IDDAA" ColumnName="MS_2_IDDAA" />
+                <ScalarProperty Name="ALT_2_5_IDDAA" ColumnName="ALT_2_5_IDDAA" />
+                <ScalarProperty Name="UST_2_5_IDDAA" ColumnName="UST_2_5_IDDAA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUAN_DURUMU">
+            <EntityTypeMapping TypeName="IDDAA_Model.PUAN_DURUMU">
+              <MappingFragment StoreEntitySet="PUAN_DURUMU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TAKIM_ADI" ColumnName="TAKIM_ADI" />
+                <ScalarProperty Name="GENEL_SIRA" ColumnName="GENEL_SIRA" />
+                <ScalarProperty Name="GENEL_MAC_SAYISI" ColumnName="GENEL_MAC_SAYISI" />
+                <ScalarProperty Name="GENEL_GALIBIYET" ColumnName="GENEL_GALIBIYET" />
+                <ScalarProperty Name="GENEL_BERABERLIK" ColumnName="GENEL_BERABERLIK" />
+                <ScalarProperty Name="GENEL_MAGLUBIYET" ColumnName="GENEL_MAGLUBIYET" />
+                <ScalarProperty Name="GENEL_ATTIGI_GOL" ColumnName="GENEL_ATTIGI_GOL" />
+                <ScalarProperty Name="GENEL_YEDIGI_GOL" ColumnName="GENEL_YEDIGI_GOL" />
+                <ScalarProperty Name="GENEL_PUAN" ColumnName="GENEL_PUAN" />
+                <ScalarProperty Name="EV_SAHIBI_SIRA" ColumnName="EV_SAHIBI_SIRA" />
+                <ScalarProperty Name="EV_SAHIBI_MAC_SAYISI" ColumnName="EV_SAHIBI_MAC_SAYISI" />
+                <ScalarProperty Name="EV_SAHIBI_GALIBIYET" ColumnName="EV_SAHIBI_GALIBIYET" />
+                <ScalarProperty Name="EV_SAHIBI_BERABERLIK" ColumnName="EV_SAHIBI_BERABERLIK" />
+                <ScalarProperty Name="EV_SAHIBI_MAGLUBIYET" ColumnName="EV_SAHIBI_MAGLUBIYET" />
+                <ScalarProperty Name="EV_SAHIBI_ATTIGI_GOL" ColumnName="EV_SAHIBI_ATTIGI_GOL" />
+                <ScalarProperty Name="EV_SAHIBI_YEDIGI_GOL" ColumnName="EV_SAHIBI_YEDIGI_GOL" />
+                <ScalarProperty Name="EV_SAHIBI_PUAN" ColumnName="EV_SAHIBI_PUAN" />
+                <ScalarProperty Name="DEPLASMAN_SIRA" ColumnName="DEPLASMAN_SIRA" />
+                <ScalarProperty Name="DEPLASMAN_MAC_SAYISI" ColumnName="DEPLASMAN_MAC_SAYISI" />
+                <ScalarProperty Name="DEPLASMAN_GALIBIYET" ColumnName="DEPLASMAN_GALIBIYET" />
+                <ScalarProperty Name="DEPLASMAN_BERABERLIK" ColumnName="DEPLASMAN_BERABERLIK" />
+                <ScalarProperty Name="DEPLASMAN_MAGLUBIYET" ColumnName="DEPLASMAN_MAGLUBIYET" />
+                <ScalarProperty Name="DEPLASMAN_ATTIGI_GOL" ColumnName="DEPLASMAN_ATTIGI_GOL" />
+                <ScalarProperty Name="DEPLASMAN_YEDIGI_GOL" ColumnName="DEPLASMAN_YEDIGI_GOL" />
+                <ScalarProperty Name="DEPLASMAN_PUAN" ColumnName="DEPLASMAN_PUAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAKAT_CEZALI">
+            <EntityTypeMapping TypeName="IDDAA_Model.SAKAT_CEZALI">
+              <MappingFragment StoreEntitySet="SAKAT_CEZALI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TAKIM_ADI" ColumnName="TAKIM_ADI" />
+                <ScalarProperty Name="POZISYON" ColumnName="POZISYON" />
+                <ScalarProperty Name="MAC_SAYISI" ColumnName="MAC_SAYISI" />
+                <ScalarProperty Name="ON_BIR_MAC_SAYISI" ColumnName="ON_BIR_MAC_SAYISI" />
+                <ScalarProperty Name="GOL_SAYISI" ColumnName="GOL_SAYISI" />
+                <ScalarProperty Name="OYUNCU_ADI" ColumnName="OYUNCU_ADI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAKIM_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.TAKIM_ISTATISTIK">
+              <MappingFragment StoreEntitySet="TAKIM_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="TAKIM_ADI" ColumnName="TAKIM_ADI" />
+                <ScalarProperty Name="GOL_DENEMESI" ColumnName="GOL_DENEMESI" />
+                <ScalarProperty Name="SUT_KALEYI_BULAN" ColumnName="SUT_KALEYI_BULAN" />
+                <ScalarProperty Name="SUT_KALEYI_BULMAYAN" ColumnName="SUT_KALEYI_BULMAYAN" />
+                <ScalarProperty Name="KORNER" ColumnName="KORNER" />
+                <ScalarProperty Name="TOPA_SAHIP_OLMA" ColumnName="TOPA_SAHIP_OLMA" />
+                <ScalarProperty Name="SUT_ENGELLEME" ColumnName="SUT_ENGELLEME" />
+                <ScalarProperty Name="TOPLAM_KART" ColumnName="TOPLAM_KART" />
+                <ScalarProperty Name="FRIKIK" ColumnName="FRIKIK" />
+                <ScalarProperty Name="OFSAYT" ColumnName="OFSAYT" />
+                <ScalarProperty Name="GOL_KAFA" ColumnName="GOL_KAFA" />
+                <ScalarProperty Name="GOL_AYAK" ColumnName="GOL_AYAK" />
+                <ScalarProperty Name="SARI_KART" ColumnName="SARI_KART" />
+                <ScalarProperty Name="KIRMIZI_KART" ColumnName="KIRMIZI_KART" />
+                <ScalarProperty Name="ATTIGI_GOL" ColumnName="ATTIGI_GOL" />
+                <ScalarProperty Name="YEDIGI_GOL" ColumnName="YEDIGI_GOL" />
+                <ScalarProperty Name="SUT_ETKISI" ColumnName="SUT_ETKISI" />
+                <ScalarProperty Name="ATILAN_PENALTI" ColumnName="ATILAN_PENALTI" />
+                <ScalarProperty Name="KACAN_PENALTI" ColumnName="KACAN_PENALTI" />
+                <ScalarProperty Name="GOL_YENMEYEN_MAC" ColumnName="GOL_YENMEYEN_MAC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOPLAM_GOL_ISTATISTIK">
+            <EntityTypeMapping TypeName="IDDAA_Model.TOPLAM_GOL_ISTATISTIK">
+              <MappingFragment StoreEntitySet="TOPLAM_GOL_ISTATISTIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="GENEL_EV_0_1" ColumnName="GENEL_EV_0_1" />
+                <ScalarProperty Name="GENEL_EV_0_1_ORAN" ColumnName="GENEL_EV_0_1_ORAN" />
+                <ScalarProperty Name="GENEL_EV_2_3" ColumnName="GENEL_EV_2_3" />
+                <ScalarProperty Name="GENEL_EV_2_3_ORAN" ColumnName="GENEL_EV_2_3_ORAN" />
+                <ScalarProperty Name="GENEL_EV_4_6" ColumnName="GENEL_EV_4_6" />
+                <ScalarProperty Name="GENEL_EV_4_6_ORAN" ColumnName="GENEL_EV_4_6_ORAN" />
+                <ScalarProperty Name="GENEL_EV_7_ARTI" ColumnName="GENEL_EV_7_ARTI" />
+                <ScalarProperty Name="GENEL_EV_7_ARTI_ORAN" ColumnName="GENEL_EV_7_ARTI_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_0_1" ColumnName="IC_DIS_EV_0_1" />
+                <ScalarProperty Name="IC_DIS_EV_0_1_ORAN" ColumnName="IC_DIS_EV_0_1_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_2_3" ColumnName="IC_DIS_EV_2_3" />
+                <ScalarProperty Name="IC_DIS_EV_2_3_ORAN" ColumnName="IC_DIS_EV_2_3_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_4_6" ColumnName="IC_DIS_EV_4_6" />
+                <ScalarProperty Name="IC_DIS_EV_4_6_ORAN" ColumnName="IC_DIS_EV_4_6_ORAN" />
+                <ScalarProperty Name="IC_DIS_EV_7_ARTI" ColumnName="IC_DIS_EV_7_ARTI" />
+                <ScalarProperty Name="IC_DIS_EV_7_ARTI_ORAN" ColumnName="IC_DIS_EV_7_ARTI_ORAN" />
+                <ScalarProperty Name="ARA_EV_0_1" ColumnName="ARA_EV_0_1" />
+                <ScalarProperty Name="ARA_EV_0_1_ORAN" ColumnName="ARA_EV_0_1_ORAN" />
+                <ScalarProperty Name="ARA_EV_2_3" ColumnName="ARA_EV_2_3" />
+                <ScalarProperty Name="ARA_EV_2_3_ORAN" ColumnName="ARA_EV_2_3_ORAN" />
+                <ScalarProperty Name="ARA_EV_4_6" ColumnName="ARA_EV_4_6" />
+                <ScalarProperty Name="ARA_EV_4_6_ORAN" ColumnName="ARA_EV_4_6_ORAN" />
+                <ScalarProperty Name="ARA_EV_7_ARTI" ColumnName="ARA_EV_7_ARTI" />
+                <ScalarProperty Name="ARA_EV_7_ARTI_ORAN" ColumnName="ARA_EV_7_ARTI_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_0_1" ColumnName="GENEL_DEP_0_1" />
+                <ScalarProperty Name="GENEL_DEP_0_1_ORAN" ColumnName="GENEL_DEP_0_1_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_2_3" ColumnName="GENEL_DEP_2_3" />
+                <ScalarProperty Name="GENEL_DEP_2_3_ORAN" ColumnName="GENEL_DEP_2_3_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_4_6" ColumnName="GENEL_DEP_4_6" />
+                <ScalarProperty Name="GENEL_DEP_4_6_ORAN" ColumnName="GENEL_DEP_4_6_ORAN" />
+                <ScalarProperty Name="GENEL_DEP_7_ARTI" ColumnName="GENEL_DEP_7_ARTI" />
+                <ScalarProperty Name="GENEL_DEP_7_ARTI_ORAN" ColumnName="GENEL_DEP_7_ARTI_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_0_1" ColumnName="IC_DIS_DEP_0_1" />
+                <ScalarProperty Name="IC_DIS_DEP_0_1_ORAN" ColumnName="IC_DIS_DEP_0_1_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_2_3" ColumnName="IC_DIS_DEP_2_3" />
+                <ScalarProperty Name="IC_DIS_DEP_2_3_ORAN" ColumnName="IC_DIS_DEP_2_3_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_4_6" ColumnName="IC_DIS_DEP_4_6" />
+                <ScalarProperty Name="IC_DIS_DEP_4_6_ORAN" ColumnName="IC_DIS_DEP_4_6_ORAN" />
+                <ScalarProperty Name="IC_DIS_DEP_7_ARTI" ColumnName="IC_DIS_DEP_7_ARTI" />
+                <ScalarProperty Name="IC_DIS_DEP_7_ARTI_ORAN" ColumnName="IC_DIS_DEP_7_ARTI_ORAN" />
+                <ScalarProperty Name="ARA_DEP_0_1" ColumnName="ARA_DEP_0_1" />
+                <ScalarProperty Name="ARA_DEP_0_1_ORAN" ColumnName="ARA_DEP_0_1_ORAN" />
+                <ScalarProperty Name="ARA_DEP_2_3" ColumnName="ARA_DEP_2_3" />
+                <ScalarProperty Name="ARA_DEP_2_3_ORAN" ColumnName="ARA_DEP_2_3_ORAN" />
+                <ScalarProperty Name="ARA_DEP_4_6" ColumnName="ARA_DEP_4_6" />
+                <ScalarProperty Name="ARA_DEP_4_6_ORAN" ColumnName="ARA_DEP_4_6_ORAN" />
+                <ScalarProperty Name="ARA_DEP_7_ARTI" ColumnName="ARA_DEP_7_ARTI" />
+                <ScalarProperty Name="ARA_DEP_7_ARTI_ORAN" ColumnName="ARA_DEP_7_ARTI_ORAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAHMIN_ML">
+            <EntityTypeMapping TypeName="IDDAA_Model.TAHMIN_ML">
+              <MappingFragment StoreEntitySet="TAHMIN_ML">
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="ML_TEST_YUZDE" ColumnName="ML_TEST_YUZDE" />
+                <ScalarProperty Name="ML_TAHMIN_YUZDE" ColumnName="ML_TAHMIN_YUZDE" />
+                <ScalarProperty Name="IDDAA_ORAN" ColumnName="IDDAA_ORAN" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAHMIN_SONUC">
+            <EntityTypeMapping TypeName="IDDAA_Model.TAHMIN_SONUC">
+              <MappingFragment StoreEntitySet="TAHMIN_SONUC">
+                <ScalarProperty Name="BOOKMAKER_TAHMIN" ColumnName="BOOKMAKER_TAHMIN" />
+                <ScalarProperty Name="ML_TAHMIN_YUZDE" ColumnName="ML_TAHMIN_YUZDE" />
+                <ScalarProperty Name="OYNANDI_MI" ColumnName="OYNANDI_MI" />
+                <ScalarProperty Name="BOOKMAKER_AZALIYOR_MU" ColumnName="BOOKMAKER_AZALIYOR_MU" />
+                <ScalarProperty Name="OYNANMA_YUZDE_MAX_MI" ColumnName="OYNANMA_YUZDE_MAX_MI" />
+                <ScalarProperty Name="POPULER_MAC_MI" ColumnName="POPULER_MAC_MI" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAHMIN_TEST">
+            <EntityTypeMapping TypeName="IDDAA_Model.TAHMIN_TEST">
+              <MappingFragment StoreEntitySet="TAHMIN_TEST">
+                <ScalarProperty Name="KAR_KEY" ColumnName="KAR_KEY" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="ML_TEST_YUZDE" ColumnName="ML_TEST_YUZDE" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAHMIN_ML_HEPSI">
+            <EntityTypeMapping TypeName="IDDAA_Model.TAHMIN_ML_HEPSI">
+              <MappingFragment StoreEntitySet="TAHMIN_ML_HEPSI">
+                <ScalarProperty Name="ML_TAHMIN_YUZDE" ColumnName="ML_TAHMIN_YUZDE" />
+                <ScalarProperty Name="IDDAA_ORAN" ColumnName="IDDAA_ORAN" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
+                <ScalarProperty Name="DEPLASMAN" ColumnName="DEPLASMAN" />
+                <ScalarProperty Name="EV_SAHIBI" ColumnName="EV_SAHIBI" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAHMIN_PROBABILITY">
+            <EntityTypeMapping TypeName="IDDAA_Model.TAHMIN_PROBABILITY">
+              <MappingFragment StoreEntitySet="TAHMIN_PROBABILITY">
+                <ScalarProperty Name="PROB_ORAN" ColumnName="PROB_ORAN" />
+                <ScalarProperty Name="DEGER" ColumnName="DEGER" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LIG_ISLEME">
+            <EntityTypeMapping TypeName="IDDAA_Model.LIG_ISLEME">
+              <MappingFragment StoreEntitySet="LIG_ISLEME">
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="BITTI" ColumnName="BITTI" />
+                <ScalarProperty Name="BASLADI" ColumnName="BASLADI" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="SIRA" ColumnName="SIRA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
