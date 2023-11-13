@@ -207,7 +207,6 @@
     <Compile Include="TahminMLServis.cs" />
     <Compile Include="TahminProbabilityServis.cs" />
     <Compile Include="TahminTestServis.cs" />
-    <Compile Include="TahminThreadServis.cs" />
     <Compile Include="TAHMIN_ML.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

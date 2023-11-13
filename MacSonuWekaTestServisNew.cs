@@ -53,11 +53,9 @@ namespace IddaaWekaTest
             Instances trainData = helper.convertFromListStringToIntances(linesOgrenme);
             Instances testData = helper.convertFromListStringToIntances(linesTest);
 
-            Bagging bagging = new Bagging();
-            bagging.setClassifier(new DecisionStump());
+            string aa = "LogitBoost";
+
             LogitBoost ogrenmeLogistic = new LogitBoost();
-            ogrenmeLogistic.setNumIterations(10);
-            ogrenmeLogistic.setClassifier(bagging);
             ogrenmeLogistic.buildClassifier(trainData);
 
             double evSahibiOran; double deplasmanOran; double beraberOran; string evSahibi; string deplasman; string lig; DateTime tarih;

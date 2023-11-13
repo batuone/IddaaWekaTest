@@ -470,89 +470,12 @@ namespace IddaaWekaTest
         public List<OGRENME> convertOgrenmeClassToOgrenmeContext(List<OgrenmeClass> lstGenelMacDetay, string[] macSonuDahilAttribute,
             string ogrenmeTip)
         {
-            //List<OGRENME> lstUstOgrenmeSatir = new List<OGRENME>();
-            //List<OGRENME> lstUstOgrenmeSatirGenel = new List<OGRENME>();
             ConcurrentBag<OGRENME> lstUstOgrenmeSatirGenelParalel = new ConcurrentBag<OGRENME>();
             
-            //HelperServis helper = new HelperServis();
-            //StringBuilder sb = new StringBuilder();
-            //OGRENME ogrenme;
-
             Parallel.ForEach(lstGenelMacDetay, mac =>
             {
                 convertOgrenmeClassToOgrenmeContextParalel(mac, lstUstOgrenmeSatirGenelParalel, macSonuDahilAttribute, ogrenmeTip);
             });
-
-            //foreach (var mac in lstGenelMacDetay)
-            //{
-            //    ogrenme = new OGRENME();
-            //    sb.Clear();
-            //    sb.Append(helper.yazMacSonuFeature(mac, macSonuDahilAttribute));
-            //    sb.Append(",");
-            //    if(ogrenmeTip == sabitDeger.evSahibiSonuc)
-            //    {
-            //        sb.Append(helper.convertMacSonucForEvSahibi(mac));
-            //    }
-            //    else if (ogrenmeTip == sabitDeger.deplasmanSonuc)
-            //    {
-            //        sb.Append(helper.convertMacSonucForDeplasman(mac));
-            //    }
-            //    else if (ogrenmeTip == sabitDeger.altUstSonuc)
-            //    {
-            //        sb.Append(helper.convertMacSonucForAltUst(mac));
-            //    }
-            //    ogrenme.SONUC = sb.ToString();
-            //    sb.Clear();
-            //    sb.Append(helper.yazMacSonuFeature(mac, macSonuDahilAttribute));
-            //    sb.Append(",");
-            //    if (ogrenmeTip == sabitDeger.evSahibiSonuc)
-            //    {
-            //        sb.Append(helper.convertMacSonucForEvSahibi(mac));
-            //    }
-            //    else if (ogrenmeTip == sabitDeger.deplasmanSonuc)
-            //    {
-            //        sb.Append(helper.convertMacSonucForDeplasman(mac));
-            //    }
-            //    else if (ogrenmeTip == sabitDeger.altUstSonuc)
-            //    {
-            //        sb.Append(helper.convertMacSonucForAltUst(mac));
-            //    }
-            //    ogrenme.SONUC_REAL = sb.ToString();
-            //    ogrenme.IDDAA_ID = Convert.ToInt32(mac.bultenItem.IDDAA_ID);
-            //    ogrenme.TARIH = Convert.ToDateTime(mac.bultenItem.TARIH);
-            //    ogrenme.EV_SAHIBI = mac.bultenItem.EV_SAHIBI;
-            //    ogrenme.DEPLASMAN = mac.bultenItem.DEPLASMAN;
-            //    if(ogrenmeTip == sabitDeger.evSahibiSonuc || ogrenmeTip == sabitDeger.deplasmanSonuc)
-            //    {
-            //        ogrenme.TIPI = sabitDeger.macSonuSonuc;
-            //    }
-            //    else if(ogrenmeTip == sabitDeger.altUstSonuc)
-            //    {
-            //        ogrenme.TIPI = sabitDeger.altUstSonuc;
-            //    }
-            //    ogrenme.LIG = mac.bultenItem.LIG;
-            //    lstUstOgrenmeSatir.Add(ogrenme);
-            //    if (lstUstOgrenmeSatir.Count == 500)
-            //    {
-            //        lstUstOgrenmeSatirGenel.AddRange(lstUstOgrenmeSatir);
-            //        lstUstOgrenmeSatir.Clear();
-            //    }
-            //}
-            //lstUstOgrenmeSatirGenel.AddRange(lstUstOgrenmeSatir);
-
-            //foreach (var item in lstUstOgrenmeSatirGenelParalel)
-            //{
-            //    if(!lstUstOgrenmeSatirGenel.Any(c=>c.IDDAA_ID == item.IDDAA_ID))
-            //    {
-
-            //    }
-            //    var tt = lstUstOgrenmeSatirGenel.First(c => c.IDDAA_ID == item.IDDAA_ID).SONUC;
-            //    if (tt != item.SONUC)
-            //    {
-
-            //    }
-            //}
-
 
             return lstUstOgrenmeSatirGenelParalel.OrderByDescending(c => c.TARIH).ThenByDescending(c => c.IDDAA_ID).ToList();
         }

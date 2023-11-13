@@ -17,7 +17,7 @@ namespace IddaaWekaTest
             CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
 
-            //args = new string[] { "HOL2", "Deplasman" };
+            args = new string[] { "AVU", "EvSahibi" };
 
             LigCalistirServis ligCalistirServis = new LigCalistirServis();
             //ligCalistirServis.calistirLigTahmin();
