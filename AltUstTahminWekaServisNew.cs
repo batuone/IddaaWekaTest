@@ -54,7 +54,8 @@ namespace IddaaWekaTest
 
             sb = helper.yazSonuc(sb, calistirTestSonucMax);
             helper.yazSonucWekaTestToFile(sb.ToString());
-            
+
+            helper.sendTelegramMesaj(sb.ToString());
         }
 
         private Dictionary<int, string[]> opsiyonelAttributeKumeleri(Dictionary<int, string[]> atrributeCountMap,
