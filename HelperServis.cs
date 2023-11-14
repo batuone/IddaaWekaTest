@@ -433,7 +433,7 @@ namespace IddaaWekaTest
             // C:\\Users\\Administrator\\Desktop\\wekaML.txt
             // C:\\Users\\batuh\\Desktop\\wekaML.txt
 
-            string dosya_yolu = @"C:\\Users\\batuh\\Desktop\\wekaML.txt"; 
+            string dosya_yolu = @"C:\\Users\\Administrator\\Desktop\\wekaML.txt"; 
             System.IO.FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine(not);
