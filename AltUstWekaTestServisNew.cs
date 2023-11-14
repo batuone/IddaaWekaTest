@@ -9,6 +9,7 @@ using weka.classifiers.functions;
 using weka.core;
 using weka.classifiers.meta;
 using weka.classifiers.trees;
+using weka.classifiers;
 
 namespace IddaaWekaTest
 {
@@ -16,7 +17,8 @@ namespace IddaaWekaTest
     {
         SabitDegerler sabitDeger = new SabitDegerler();
 
-        public KarTest calistirMacSonuOgrenmeTest(List<OGRENME> lstOgrenme, bool isYazdir, int altUstTestOran, string[] ligPair)
+        public KarTest calistirMacSonuOgrenmeTest(List<OGRENME> lstOgrenme, bool isYazdir, int altUstTestOran, 
+            string[] ligPair, Classifier ogrenmeLogistic)
         {
             HelperServis helper = new HelperServis();
             List<Sonuc> lstProbs = new List<Sonuc>();
@@ -51,13 +53,7 @@ namespace IddaaWekaTest
             Instances trainData = helper.convertFromListStringToIntancesAltUst(linesOgrenme);
             Instances testData = helper.convertFromListStringToIntancesAltUst(linesTest);
 
-            Bagging bagging = new Bagging();
-            bagging.setClassifier(new DecisionStump());
-            LogitBoost ogrenmeLogistic = new LogitBoost();
-            ogrenmeLogistic.setNumIterations(10);
-            ogrenmeLogistic.setClassifier(bagging);
             ogrenmeLogistic.buildClassifier(trainData);
-
 
             double altOran; double ustOran; string evSahibi; string deplasman; string lig; DateTime tarih;
             string[] lastElementCount = linesOgrenme.ElementAt(0).Split(',');

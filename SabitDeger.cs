@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using weka.classifiers;
+using weka.classifiers.meta;
+using weka.classifiers.trees;
 using weka.core;
 using Attribute = weka.core.Attribute;
 
@@ -85,6 +88,10 @@ namespace IddaaWekaTest
                 return new Attribute("sonuc", my_nominal_values);
             }
 
-        }
+
+            public Classifier[] classifiers = { new RandomForest() };
+
+            public string[] testLigler = new string[] { "AVU" };
+    }
     }
 }

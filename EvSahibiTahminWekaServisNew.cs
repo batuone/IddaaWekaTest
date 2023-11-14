@@ -41,36 +41,16 @@ namespace IddaaWekaTest
                 //attribute belirle
                 atrributeCountMap = opsiyonelAttributeKumeleri(atrributeCountMap, lstOgrenme);
 
-                Classifier[] classifiers = { new RandomSubSpace(), new RandomForest() };
+                Classifier[] classifiers = sabitDeger.classifiers;
                 ////test calistir
                 List<CalistirTestSonuc> calistirTestSonucList = calisTestParallel(atrributeCountMap, lstOgrenmeButunAttributelar, 
-                    ligler,classifiers);
-                
-                foreach (var item in calistirTestSonucList)
-                {
-                    item.lig = ligler.First();
-                    item.macTip = sabitDeger.evSahibiSonuc;
-                }
+                    ligler, classifiers);
 
-                sb = yazSonuc(sb, calistirTestSonucList);
-                helper.yazSonucToFile(sb.ToString());
+                List<CalistirTestSonuc> calistirTestSonucMax = calistirTestSonucList.Where(c => c.Kar == calistirTestSonucList.Max(d => d.Kar)).ToList();
+
+                sb = helper.yazSonuc(sb, calistirTestSonucMax);
+                helper.yazSonucWekaTestToFile(sb.ToString());
             }
-        }
-        
-        private StringBuilder yazSonuc(StringBuilder sb, List<CalistirTestSonuc> calistirTestSonucList)
-        {
-            foreach (var item in calistirTestSonucList)
-            {
-                sb.Append(item.macTip );
-                sb.Append(" --> ");
-                sb.Append(item.lig);
-                sb.Append(" - ");
-                sb.Append(item.wekaTip);
-                sb.Append(" -- ");
-                sb.Append(item.Kar);
-                sb.Append(System.Environment.NewLine);
-            }
-            return sb;
         }
 
         private Dictionary<int, string[]> opsiyonelAttributeKumeleri(Dictionary<int, string[]> atrributeCountMap, 
@@ -146,7 +126,9 @@ namespace IddaaWekaTest
 
                 calistirTestSonuc.Kar = karMapParallel.First().Value;
                 calistirTestSonuc.wekaTip = item.GetType().Name;
-
+                calistirTestSonuc.lig = ligler.First();
+                calistirTestSonuc.macTip = sabitDeger.evSahibiSonuc;
+                               
                 calistirTestSonuclist.Add(calistirTestSonuc);
             }
 

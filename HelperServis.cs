@@ -398,6 +398,25 @@ namespace IddaaWekaTest
             return linesOgrenme;
         }
 
+        public StringBuilder yazSonuc(StringBuilder sb, List<CalistirTestSonuc> calistirTestSonuc)
+        {
+            for (int i = 0; i < calistirTestSonuc.Count; i++)
+            {
+                sb.Append(calistirTestSonuc[i].lig);
+                sb.Append(";");
+                sb.Append(calistirTestSonuc[i].macTip);
+                sb.Append(";");
+                sb.Append(calistirTestSonuc[i].wekaTip);
+                sb.Append(";");
+                sb.Append(calistirTestSonuc[i].Kar);
+                if(i != (calistirTestSonuc.Count - 1))
+                {
+                    sb.Append(System.Environment.NewLine);
+                }
+            }
+            return sb;
+        }
+
         public void yazSonucToFile(String not)
         {
             //string dosya_yolu = @"C:\\Users\\batuh\\Desktop\\Iddaa\\versiyon3\\wekaML.txt";
@@ -411,15 +430,18 @@ namespace IddaaWekaTest
 
         public void yazSonucWekaTestToFile(String not)
         {
-            string dosya_yolu = @"C:\\Users\\batuh\\Desktop\\wekaML.txt";
+            // C:\\Users\\Administrator\\Desktop\\wekaML.txt
+            // C:\\Users\\batuh\\Desktop\\wekaML.txt
+
+            string dosya_yolu = @"C:\\Users\\batuh\\Desktop\\wekaML.txt"; 
             System.IO.FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine(not);
             sw.Flush();
             sw.Close();
             fs.Close();
-
         }
+
         public decimal bulMacSonuOran(String evSahibi, String deplasman, DateTime tarih, String predict)
         {
             using (var ctx = new IDDAA_Entities())

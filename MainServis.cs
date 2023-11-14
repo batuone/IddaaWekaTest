@@ -16,13 +16,15 @@ namespace IddaaWekaTest
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
             CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
+            SabitDegerler sabitDeger = new SabitDegerler();
+            
+            foreach (var item in sabitDeger.testLigler)
+            {
+                string[] ligler = new string[] { item };
 
-            args = new string[] { "AVU", "EvSahibi" };
-
-            LigCalistirServis ligCalistirServis = new LigCalistirServis();
-            //ligCalistirServis.calistirLigTahmin();
-            ligCalistirServis.calistirLigTahminWithArgs(args);
-
+                LigCalistirServis ligCalistirServis = new LigCalistirServis();
+                ligCalistirServis.calistirLigTahminWithArgs(ligler);
+            }
         }
         
     }
