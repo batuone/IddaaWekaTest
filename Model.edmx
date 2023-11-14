@@ -517,6 +517,28 @@
           <Property Name="GOL_SAYISI" Type="int" />
           <Property Name="OYUNCU_ADI" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="SINIFLANDIRMA_SONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="WEKA_TIP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KAR" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="TARIH" Type="date" />
+        </EntityType>
+        <EntityType Name="SINIFLANDIRMA_TEST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ISLENDI" Type="int" Nullable="false" />
+          <Property Name="BASLAMA_TARIH" Type="datetime" />
+          <Property Name="BITIS_TARIH" Type="datetime" />
+        </EntityType>
         <EntityType Name="TAHMIN_ML">
           <Key>
             <PropertyRef Name="ID" />
@@ -696,6 +718,8 @@
           <EntitySet Name="POPULER_BAHIS" EntityType="Self.POPULER_BAHIS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUAN_DURUMU" EntityType="Self.PUAN_DURUMU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SAKAT_CEZALI" EntityType="Self.SAKAT_CEZALI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SINIFLANDIRMA_SONUC" EntityType="Self.SINIFLANDIRMA_SONUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SINIFLANDIRMA_TEST" EntityType="Self.SINIFLANDIRMA_TEST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAHMIN_ML" EntityType="Self.TAHMIN_ML" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAHMIN_ML_HEPSI" EntityType="Self.TAHMIN_ML_HEPSI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAHMIN_PROBABILITY" EntityType="Self.TAHMIN_PROBABILITY" Schema="dbo" store:Type="Tables" />
@@ -1320,6 +1344,8 @@
           <EntitySet Name="TAHMIN_ML_HEPSI" EntityType="IDDAA_Model.TAHMIN_ML_HEPSI" />
           <EntitySet Name="TAHMIN_PROBABILITY" EntityType="IDDAA_Model.TAHMIN_PROBABILITY" />
           <EntitySet Name="LIG_ISLEME" EntityType="IDDAA_Model.LIG_ISLEME" />
+          <EntitySet Name="SINIFLANDIRMA_SONUC" EntityType="IDDAA_Model.SINIFLANDIRMA_SONUC" />
+          <EntitySet Name="SINIFLANDIRMA_TEST" EntityType="IDDAA_Model.SINIFLANDIRMA_TEST" />
         </EntityContainer>
         <EntityType Name="TAHMIN_ML">
           <Key>
@@ -1406,6 +1432,28 @@
           <Property Name="BASLADI" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="BITTI" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="TIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SINIFLANDIRMA_SONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WEKA_TIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KAR" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="TARIH" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="SINIFLANDIRMA_TEST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LIG" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ISLENDI" Type="Int32" Nullable="false" />
+          <Property Name="BASLAMA_TARIH" Type="DateTime" Precision="3" />
+          <Property Name="BITIS_TARIH" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2106,6 +2154,30 @@
                 <ScalarProperty Name="LIG" ColumnName="LIG" />
                 <ScalarProperty Name="TARIH" ColumnName="TARIH" />
                 <ScalarProperty Name="SIRA" ColumnName="SIRA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SINIFLANDIRMA_SONUC">
+            <EntityTypeMapping TypeName="IDDAA_Model.SINIFLANDIRMA_SONUC">
+              <MappingFragment StoreEntitySet="SINIFLANDIRMA_SONUC">
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="WEKA_TIP" ColumnName="WEKA_TIP" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SINIFLANDIRMA_TEST">
+            <EntityTypeMapping TypeName="IDDAA_Model.SINIFLANDIRMA_TEST">
+              <MappingFragment StoreEntitySet="SINIFLANDIRMA_TEST">
+                <ScalarProperty Name="BITIS_TARIH" ColumnName="BITIS_TARIH" />
+                <ScalarProperty Name="BASLAMA_TARIH" ColumnName="BASLAMA_TARIH" />
+                <ScalarProperty Name="ISLENDI" ColumnName="ISLENDI" />
+                <ScalarProperty Name="TIP" ColumnName="TIP" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -52,5 +52,7 @@ namespace IddaaWekaTest
         public virtual DbSet<TAHMIN_ML_HEPSI> TAHMIN_ML_HEPSI { get; set; }
         public virtual DbSet<TAHMIN_PROBABILITY> TAHMIN_PROBABILITY { get; set; }
         public virtual DbSet<LIG_ISLEME> LIG_ISLEME { get; set; }
+        public virtual DbSet<SINIFLANDIRMA_SONUC> SINIFLANDIRMA_SONUC { get; set; }
+        public virtual DbSet<SINIFLANDIRMA_TEST> SINIFLANDIRMA_TEST { get; set; }
     }
 }

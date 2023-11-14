@@ -18,6 +18,8 @@ namespace IddaaWekaTest
 
             SabitDegerler sabitDeger = new SabitDegerler();
             
+
+
             foreach (var item in sabitDeger.testLigler)
             {
                 string[] ligler = new string[] { item };

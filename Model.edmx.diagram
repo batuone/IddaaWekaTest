@@ -32,6 +32,8 @@
         <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_ML_HEPSI" Width="1.5" PointX="19.375" PointY="0.75" />
         <EntityTypeShape EntityType="IDDAA_Model.TAHMIN_PROBABILITY" Width="1.5" PointX="19.375" PointY="4.75" />
         <EntityTypeShape EntityType="IDDAA_Model.LIG_ISLEME" Width="1.5" PointX="19.375" PointY="7.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.SINIFLANDIRMA_SONUC" Width="1.5" PointX="19.375" PointY="11.75" />
+        <EntityTypeShape EntityType="IDDAA_Model.SINIFLANDIRMA_TEST" Width="1.5" PointX="19.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

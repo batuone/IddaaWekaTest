@@ -203,6 +203,12 @@
     <Compile Include="SAKAT_CEZALI.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SINIFLANDIRMA_SONUC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SINIFLANDIRMA_TEST.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="TahminMLHepsiServis.cs" />
     <Compile Include="TahminMLServis.cs" />
     <Compile Include="TahminProbabilityServis.cs" />
