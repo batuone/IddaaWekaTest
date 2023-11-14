@@ -27,30 +27,27 @@ namespace IddaaWekaTest
             StringBuilder sb = new StringBuilder();
             HelperServis helper = new HelperServis();
 
-            using (var ctx = new IDDAA_Entities())
-            {
-                Dictionary<int, string[]> atrributeCountMap = new Dictionary<int, string[]>();
+            Dictionary<int, string[]> atrributeCountMap = new Dictionary<int, string[]>();
 
-                //full ogrenme
-                List<OgrenmeClass> lstOgrenmeButunAttributelar = macSonuOgrenmeServisNew.ekleMacSonuOgrenmeButunAttributeler
-                    (ligler, dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
+            //full ogrenme
+            List<OgrenmeClass> lstOgrenmeButunAttributelar = macSonuOgrenmeServisNew.ekleMacSonuOgrenmeButunAttributeler
+                (ligler, dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
 
-                List<OGRENME> lstOgrenme = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, 
-                    dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
+            List<OGRENME> lstOgrenme = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, 
+                dahilOgrenme.macSonuDahilAttribute, sabitDeger.evSahibiSonuc);
 
-                //attribute belirle
-                atrributeCountMap = opsiyonelAttributeKumeleri(atrributeCountMap, lstOgrenme);
+            //attribute belirle
+            atrributeCountMap = opsiyonelAttributeKumeleri(atrributeCountMap, lstOgrenme);
 
-                Classifier[] classifiers = sabitDeger.classifiers;
-                ////test calistir
-                List<CalistirTestSonuc> calistirTestSonucList = calisTestParallel(atrributeCountMap, lstOgrenmeButunAttributelar, 
-                    ligler, classifiers);
+            Classifier[] classifiers = sabitDeger.classifiers;
+            ////test calistir
+            List<CalistirTestSonuc> calistirTestSonucList = calisTestParallel(atrributeCountMap, lstOgrenmeButunAttributelar, 
+                ligler, classifiers);
 
-                List<CalistirTestSonuc> calistirTestSonucMax = calistirTestSonucList.Where(c => c.Kar == calistirTestSonucList.Max(d => d.Kar)).ToList();
+            List<CalistirTestSonuc> calistirTestSonucMax = calistirTestSonucList.Where(c => c.Kar == calistirTestSonucList.Max(d => d.Kar)).ToList();
 
-                sb = helper.yazSonuc(sb, calistirTestSonucMax);
-                helper.yazSonucWekaTestToFile(sb.ToString());
-            }
+            sb = helper.yazSonuc(sb, calistirTestSonucMax);
+            helper.yazSonucWekaTestToFile(sb.ToString());
         }
 
         private Dictionary<int, string[]> opsiyonelAttributeKumeleri(Dictionary<int, string[]> atrributeCountMap, 
@@ -97,39 +94,46 @@ namespace IddaaWekaTest
             
             foreach (var item in classifiers)
             {
-                MacSonuOgrenmeServisNew macSonuOgrenmeServisNew = new MacSonuOgrenmeServisNew();
-                MacSonuWekaTestServisNew macSonuWekaTestServisNew = new MacSonuWekaTestServisNew();
-                HelperServis helper = new HelperServis();
-                decimal kar = 0;                
-                TahminTestServis tahminTestServis = new TahminTestServis();
-                List<OGRENME> lstOgrenmeParallel = new List<OGRENME>();
-                KarTest karTestParallel = new KarTest();
-                Dictionary<int, decimal> karMapParallel = new Dictionary<int, decimal>();
+                try
+                { 
+                    MacSonuOgrenmeServisNew macSonuOgrenmeServisNew = new MacSonuOgrenmeServisNew();
+                    MacSonuWekaTestServisNew macSonuWekaTestServisNew = new MacSonuWekaTestServisNew();
+                    HelperServis helper = new HelperServis();
+                    decimal kar = 0;                
+                    TahminTestServis tahminTestServis = new TahminTestServis();
+                    List<OGRENME> lstOgrenmeParallel = new List<OGRENME>();
+                    KarTest karTestParallel = new KarTest();
+                    Dictionary<int, decimal> karMapParallel = new Dictionary<int, decimal>();
 
-                CalistirTestSonuc calistirTestSonuc = new CalistirTestSonuc();
+                    CalistirTestSonuc calistirTestSonuc = new CalistirTestSonuc();
 
-                Parallel.For(0, atrributeCountMap.Count(), i => {
+                    Parallel.For(0, atrributeCountMap.Count(), i => {
 
-                    Classifier classifieraa = (Classifier)Activator.CreateInstance(item.GetType());
+                        Classifier classifieraa = (Classifier)Activator.CreateInstance(item.GetType());
 
-                    lstOgrenmeParallel = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, atrributeCountMap.ElementAt(i).Value, sabitDeger.evSahibiSonuc);
+                        lstOgrenmeParallel = macSonuOgrenmeServisNew.convertOgrenmeClassToOgrenmeContext(lstOgrenmeButunAttributelar, atrributeCountMap.ElementAt(i).Value, sabitDeger.evSahibiSonuc);
 
-                    //test calistir
-                    karTestParallel = macSonuWekaTestServisNew.calistirMacSonuOgrenmeTest(lstOgrenmeParallel, false, sabitDeger.evSahibiSonuc,
-                        ligler, classifieraa);
+                        //test calistir
+                        karTestParallel = macSonuWekaTestServisNew.calistirMacSonuOgrenmeTest(lstOgrenmeParallel, false, sabitDeger.evSahibiSonuc,
+                            ligler, classifieraa);
 
-                    karMapParallel.Add(atrributeCountMap.ElementAt(i).Key, karTestParallel.kar);
-                });
+                        karMapParallel.Add(atrributeCountMap.ElementAt(i).Key, karTestParallel.kar);
+                    });
 
-                // en karli olan attribute grubu alinir
-                karMapParallel = karMapParallel.OrderByDescending(c => c.Value).ThenByDescending(c => c.Key).ToDictionary(x => x.Key, x => x.Value);
+                    // en karli olan attribute grubu alinir
+                    karMapParallel = karMapParallel.OrderByDescending(c => c.Value).ThenByDescending(c => c.Key).ToDictionary(x => x.Key, x => x.Value);
 
-                calistirTestSonuc.Kar = karMapParallel.First().Value;
-                calistirTestSonuc.wekaTip = item.GetType().Name;
-                calistirTestSonuc.lig = ligler.First();
-                calistirTestSonuc.macTip = sabitDeger.evSahibiSonuc;
+                    calistirTestSonuc.Kar = karMapParallel.First().Value;
+                    calistirTestSonuc.wekaTip = item.GetType().Name;
+                    calistirTestSonuc.lig = ligler.First();
+                    calistirTestSonuc.macTip = sabitDeger.evSahibiSonuc;
                                
-                calistirTestSonuclist.Add(calistirTestSonuc);
+                    calistirTestSonuclist.Add(calistirTestSonuc);
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
             }
 
             return calistirTestSonuclist;

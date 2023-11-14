@@ -175,34 +175,33 @@ namespace IddaaWekaTest
         private OgrenmeTestKume getirOgrenmeVeTestKume(List<OGRENME> lstOgrenme, int oran)
         {
             OgrenmeTestKume ogrenmeTestKume = new OgrenmeTestKume();
-            using (var ctx = new IDDAA_Entities())
+
+            var ogrenme = lstOgrenme.OrderByDescending(c => c.TARIH).ThenByDescending(c => c.IDDAA_ID).ToList();
+            int ogrenmeCount = ogrenme.Count();
+
+            if (ogrenmeCount < 800)
             {
-                var ogrenme = lstOgrenme.OrderByDescending(c => c.TARIH).ThenByDescending(c => c.IDDAA_ID).ToList();
-                int ogrenmeCount = ogrenme.Count();
-
-                if (ogrenmeCount < 800)
-                {
-                    oran = sabitDeger.altUst800TestOran;
-                }
-                else if (ogrenmeCount < 1000)
-                {
-                    oran = sabitDeger.altUst1000TestOran;
-                }
-                else if (ogrenmeCount < 1200)
-                {
-                    oran = sabitDeger.altUst1200TestOran;
-                }
-                else
-                {
-                    oran = sabitDeger.altUstFullTestOran;
-                }
-
-                int ogrenmeOranCount = ogrenmeCount * oran / 100;
-                int ogrenmeKalanCount = ogrenmeCount - ogrenmeOranCount;
-                ogrenmeTestKume.lstTestKume = ogrenme.Take(ogrenmeOranCount).ToList();
-                ogrenmeTestKume.lstOgrenmeKume = ogrenme.Skip(ogrenmeOranCount).Take(ogrenmeKalanCount).ToList();
-                ogrenmeTestKume.testYuzdeOran = oran;
+                oran = sabitDeger.altUst800TestOran;
             }
+            else if (ogrenmeCount < 1000)
+            {
+                oran = sabitDeger.altUst1000TestOran;
+            }
+            else if (ogrenmeCount < 1200)
+            {
+                oran = sabitDeger.altUst1200TestOran;
+            }
+            else
+            {
+                oran = sabitDeger.altUstFullTestOran;
+            }
+
+            int ogrenmeOranCount = ogrenmeCount * oran / 100;
+            int ogrenmeKalanCount = ogrenmeCount - ogrenmeOranCount;
+            ogrenmeTestKume.lstTestKume = ogrenme.Take(ogrenmeOranCount).ToList();
+            ogrenmeTestKume.lstOgrenmeKume = ogrenme.Skip(ogrenmeOranCount).Take(ogrenmeKalanCount).ToList();
+            ogrenmeTestKume.testYuzdeOran = oran;
+            
             return ogrenmeTestKume;
         }
 
