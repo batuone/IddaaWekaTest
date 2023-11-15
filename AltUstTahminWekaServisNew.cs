@@ -139,7 +139,7 @@ namespace IddaaWekaTest
                     calistirTestSonuc.Kar = karMapParallel.First().Value;
                     calistirTestSonuc.wekaTip = item.GetType().Name;
                     calistirTestSonuc.lig = ligler.First();
-                    calistirTestSonuc.macTip = sabitDeger.altUstSonuc;
+                    calistirTestSonuc.macTip = sabitDeger.ust;
 
                     calistirTestSonuclist.Add(calistirTestSonuc);
                 }
