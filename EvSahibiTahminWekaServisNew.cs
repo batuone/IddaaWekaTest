@@ -26,6 +26,7 @@ namespace IddaaWekaTest
             MacSonuOgrenmeServisNew macSonuOgrenmeServisNew = new MacSonuOgrenmeServisNew();
             StringBuilder sb = new StringBuilder();
             HelperServis helper = new HelperServis();
+            LigCalistirServis ligCalistirServis = new LigCalistirServis();
 
             Dictionary<int, string[]> atrributeCountMap = new Dictionary<int, string[]>();
 
@@ -50,6 +51,9 @@ namespace IddaaWekaTest
             helper.yazSonucWekaTestToFile(sb.ToString());
 
             helper.sendTelegramMesaj(sb.ToString());
+
+            ligCalistirServis.ekleSiniflandirma(calistirTestSonucMax);
+
         }
 
         private Dictionary<int, string[]> opsiyonelAttributeKumeleri(Dictionary<int, string[]> atrributeCountMap, 
@@ -140,6 +144,8 @@ namespace IddaaWekaTest
 
             return calistirTestSonuclist;
         }
+
+
 
     }
 }

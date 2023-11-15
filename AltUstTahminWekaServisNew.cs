@@ -33,7 +33,7 @@ namespace IddaaWekaTest
             List<String> islemYapilanLigler = new List<string>();
             CalistirTestSonuc calistirTestSonuc = new CalistirTestSonuc();
             Dictionary<string[], string[]> ligPairAttributeMap = new Dictionary<string[], string[]>();
-
+            LigCalistirServis ligCalistirServis = new LigCalistirServis();
             Dictionary<int, string[]> atrributeCountMap = new Dictionary<int, string[]>();
 
             lstOgrenmeButunAttributelar = macSonuOgrenmeServisNew.ekleMacSonuOgrenmeButunAttributeler
@@ -56,6 +56,8 @@ namespace IddaaWekaTest
             helper.yazSonucWekaTestToFile(sb.ToString());
 
             helper.sendTelegramMesaj(sb.ToString());
+
+            ligCalistirServis.ekleSiniflandirma(calistirTestSonucMax);
         }
 
         private Dictionary<int, string[]> opsiyonelAttributeKumeleri(Dictionary<int, string[]> atrributeCountMap,

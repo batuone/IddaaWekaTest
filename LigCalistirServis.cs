@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static IddaaWekaTest.OgrenmeClass;
 
 namespace IddaaWekaTest
 {
@@ -10,17 +11,73 @@ namespace IddaaWekaTest
     {
         HelperServis helper = new HelperServis();
 
-        public void calistirLigTahminWithArgs(string[] ligler)
+        public void calistirLigTahminWithArgs(SINIFLANDIRMA_TEST item)
         {
-            EvSahibiTahminWekaServisNew evSahibiTahminWekaServisNew = new EvSahibiTahminWekaServisNew();
-            evSahibiTahminWekaServisNew.calistirTahmin(ligler);
+            string[] ligler = new string[] { item.LIG };
+            guncelleSiniflandirmaTestBaslangicTarih(item.LIG, item.TIP);
 
-            DeplasmanTahminWekaServisNew deplasmanTahminWekaServisNew = new DeplasmanTahminWekaServisNew();
-            deplasmanTahminWekaServisNew.calistirTahmin(ligler);
+            if (item.TIP == "EvSahibi")
+            {
+                EvSahibiTahminWekaServisNew evSahibiTahminWekaServisNew = new EvSahibiTahminWekaServisNew();
+                evSahibiTahminWekaServisNew.calistirTahmin(ligler);
+            }
 
-            AltUstTahminWekaServisNew altUstTahminWekaServisNew = new AltUstTahminWekaServisNew();
-            altUstTahminWekaServisNew.calistirTahmin(ligler);
+            if (item.TIP == "Deplasman")
+            {
+                DeplasmanTahminWekaServisNew deplasmanTahminWekaServisNew = new DeplasmanTahminWekaServisNew();
+                deplasmanTahminWekaServisNew.calistirTahmin(ligler);
+            }
+            
+            if (item.TIP == "Ust")
+            {
+                AltUstTahminWekaServisNew altUstTahminWekaServisNew = new AltUstTahminWekaServisNew();
+                altUstTahminWekaServisNew.calistirTahmin(ligler);
+            }
+
+            guncelleSiniflandirmaTestIslendi(item.LIG, item.TIP);
         }
 
+        private void guncelleSiniflandirmaTestBaslangicTarih(string lig, string tip)
+        {
+            using (var ctx = new IDDAA_Entities())
+            {
+                var satir = ctx.SINIFLANDIRMA_TEST.First(c => c.LIG == lig && c.TIP == tip);
+                satir.BASLAMA_TARIH = DateTime.Now;
+                ctx.SaveChanges();
+            }
+        }
+
+        private void guncelleSiniflandirmaTestIslendi(string lig, string tip)
+        {
+            using (var ctx = new IDDAA_Entities())
+            {
+                var satir = ctx.SINIFLANDIRMA_TEST.First(c => c.LIG == lig && c.TIP == tip);
+                satir.BITIS_TARIH = DateTime.Now;
+                satir.ISLENDI = 1;
+                ctx.SaveChanges();
+            }
+        }
+
+        public void ekleSiniflandirma(List<CalistirTestSonuc> calistirTestSonucMax)
+        {
+            List<SINIFLANDIRMA_SONUC> lstSiniflandirma = new List<SINIFLANDIRMA_SONUC>();
+            foreach (var item in calistirTestSonucMax)
+            {
+                SINIFLANDIRMA_SONUC sonuc = new SINIFLANDIRMA_SONUC();
+                sonuc.LIG = item.lig;
+                sonuc.TIP = item.macTip;
+                sonuc.WEKA_TIP = item.wekaTip;
+                sonuc.KAR = item.Kar;
+                sonuc.TARIH = DateTime.Today;
+
+                lstSiniflandirma.Add(sonuc);
+            }
+            
+            using (var context = new IDDAA_Entities())
+            {
+                context.SINIFLANDIRMA_SONUC.AddRange(lstSiniflandirma);
+                context.SaveChanges();
+            }
+        }
     }
 }

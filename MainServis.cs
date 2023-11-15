@@ -16,16 +16,18 @@ namespace IddaaWekaTest
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
             CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
+            List<SINIFLANDIRMA_TEST> testLigler = new List<SINIFLANDIRMA_TEST>();
             SabitDegerler sabitDeger = new SabitDegerler();
-            
 
-
-            foreach (var item in sabitDeger.testLigler)
+            using (var ctx = new IDDAA_Entities())               
             {
-                string[] ligler = new string[] { item };
+                testLigler = ctx.SINIFLANDIRMA_TEST.Where(c => c.ISLENDI == 0).ToList();
+            }
 
+            foreach (var item in testLigler)
+            {
                 LigCalistirServis ligCalistirServis = new LigCalistirServis();
-                ligCalistirServis.calistirLigTahminWithArgs(ligler);
+                ligCalistirServis.calistirLigTahminWithArgs(item);
             }
         }
         
