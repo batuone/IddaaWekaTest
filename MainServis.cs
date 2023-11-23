@@ -21,6 +21,18 @@ namespace IddaaWekaTest
 
             using (var ctx = new IDDAA_Entities())               
             {
+                if(ctx.SINIFLANDIRMA_TEST.All(c => c.ISLENDI == 1))
+                {
+                    var satir = ctx.SINIFLANDIRMA_TEST.Where(c => c.ISLENDI == 1);
+                    foreach (var item in satir)
+                    {
+                        item.BASLAMA_TARIH = null;
+                        item.BITIS_TARIH = null;
+                        item.ISLENDI = 0;
+                    }
+                    ctx.SaveChanges();
+                }
+
                 testLigler = ctx.SINIFLANDIRMA_TEST.Where(c => c.ISLENDI == 0).ToList();
             }
 

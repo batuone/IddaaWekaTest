@@ -92,24 +92,11 @@ namespace IddaaWekaTest
             }
 
 
-            public Classifier[] classifiers = { new Logistic(), new MultilayerPerceptron(), new SGD(), new SimpleLogistic(), new SMO(), new VotedPerceptron(), 
-             new AdaBoostM1(), new Bagging(), new LogitBoost(), new MultiClassClassifier(), new RandomSubSpace(), new Stacking(),
-             new DecisionTable(), new DecisionStump(), new REPTree()};
+            public Classifier[] classifiers = { new Logistic(), new SGD(), new SimpleLogistic(), 
+                new SMO(), new VotedPerceptron(), new AdaBoostM1(), new Bagging(), new LogitBoost(),
+                new RandomSubSpace(), new Stacking(), new DecisionTable(), new DecisionStump(), new REPTree()};
 
-                       
-            public string[] testLigler = new string[] { "TSL", "T1L","AL1","AL2", "IS1","IS2", "HOL","HOL2","INP","INCL",
-                "FR1","FR2","POR","AVUS", "JAP", "JAP2", "GKOR", "GKOR2", "ÇINSL", "ÇEK2", 
-            "RUS","NOR","NOR1","ÇEK","SIRP","ITB", "AVU", "DAN","DAN1","ISV","ROM","YUN","MAC",
-            "BEL","ITA", "POL","POL1","BEL2","EST1","FIN","LITA","UKR",
-            "POR2","IBSL","GAL","SLVN","IRL","IN1","IN2","IKP","ISÇ","BLR","HIR","ISV2","SUUD","AU2","AL3","GAFPSL",
-            "ISÇ2","RUS1","URU","SIL","MEK","PER","EKV1","KOL","BR1","ARJ","ABD","PAR"};
 
-                       
-            // { "AVUS", "JAP", "JAP2", "GKOR", "GKOR2", "ÇINSL", "ÇEK2", "TSL", "T1L",
-            //"RUS","NOR","NOR1","ÇEK","SIRP","ITB","AL1","AL2","AVU", "DAN","DAN1","ISV","ROM","YUN","MAC","IS1","IS2",
-            //"BEL","HOL","HOL2","INP","INCL","ITA","FR1","FR2","POR","POL","POL1","BEL2","EST1","FIN","LITA","UKR",
-            //"POR2","IBSL","GAL","SLVN","IRL","IN1","IN2","IKP","ISÇ","BLR","HIR","ISV2","SUUD","AU2","AL3","GAFPSL",
-            //"ISÇ2","RUS1","URU","SIL","MEK","PER","EKV1","KOL","BR1","ARJ","ABD","PAR"};
-    }
+        }
     }
 }
