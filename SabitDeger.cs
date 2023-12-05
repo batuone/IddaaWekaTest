@@ -92,9 +92,9 @@ namespace IddaaWekaTest
             }
 
 
-            public Classifier[] classifiers = { new Logistic(), new SGD(), new SimpleLogistic(), 
-                new SMO(), new VotedPerceptron(), new AdaBoostM1(), new Bagging(), new LogitBoost(),
-                new RandomSubSpace(), new Stacking(), new DecisionTable(), new DecisionStump(), new REPTree()};
+            public Classifier[] classifiers = { new Logistic(), new SimpleLogistic(),
+                new AdaBoostM1(), new Bagging(), new LogitBoost(),
+                new RandomSubSpace(), new DecisionTable(), new REPTree()};
 
 
         }
