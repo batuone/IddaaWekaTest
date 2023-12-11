@@ -51,10 +51,10 @@ namespace IddaaWekaTest
 
             List<CalistirTestSonuc> calistirTestSonucMax = calistirTestSonucList.Where(c => c.Kar == calistirTestSonucList.Max(d => d.Kar)).ToList();
 
-            sb = helper.yazSonuc(sb, calistirTestSonucMax);
+            //sb = helper.yazSonuc(sb, calistirTestSonucMax);
             //helper.yazSonucWekaTestToFile(sb.ToString());
 
-            helper.sendTelegramMesaj(sb.ToString());
+            //helper.sendTelegramMesaj(sb.ToString());
 
             ligCalistirServis.ekleSiniflandirma(calistirTestSonucMax);
         }

@@ -33,8 +33,9 @@ namespace IddaaWekaTest
                 AltUstTahminWekaServisNew altUstTahminWekaServisNew = new AltUstTahminWekaServisNew();
                 altUstTahminWekaServisNew.calistirTahmin(ligler);
             }
-
+                        
             guncelleSiniflandirmaTestIslendi(item.LIG, item.TIP);
+            sendTelegramMesaj();
         }
 
         private void guncelleSiniflandirmaTestBaslangicTarih(string lig, string tip)
@@ -79,5 +80,19 @@ namespace IddaaWekaTest
                 context.SaveChanges();
             }
         }
+
+        private void sendTelegramMesaj()
+        {
+            if (DateTime.Now.Hour % 6 == 0)
+            {
+                using (var ctx = new IDDAA_Entities())
+                {
+                    var islenenKumeSayi = ctx.SINIFLANDIRMA_TEST.Count(c=> c.ISLENDI == 1);
+
+                    helper.sendTelegramMesaj("Sınıflandırma islenen sayı: " + islenenKumeSayi);
+                }
+            }
+        }
+
     }
 }
