@@ -92,11 +92,50 @@ namespace IddaaWekaTest
             }
 
 
-            public Classifier[] classifiers = { new Logistic(), new SimpleLogistic(),
-                new AdaBoostM1(), new Bagging(), new LogitBoost(),
-                new RandomSubSpace(), new DecisionTable(), new REPTree()};
+            /// <summary>
+            /// 
+            /// </summary>
 
 
-        }
+            public string yari2 { get; set; } = "Yari2";
+
+            public string hangiYariGol { get; set; } = "YariSonuc";
+
+            public Attribute attributeSonucYari()
+            {
+                FastVector my_nominal_values = new FastVector(2);
+                my_nominal_values.addElement("Yari1");
+                my_nominal_values.addElement("Yari2");
+                return new Attribute("sonuc", my_nominal_values);
+            }
+
+            public int yariAttributeCount { get; set; } = 75;
+
+            public int yariAttributeCountMin { get; set; } = 5;
+
+            public int yariTestOran { get; set; } = 15;
+
+            public int yari800TestOran { get; set; } = 10;
+
+            public int yari1000TestOran { get; set; } = 15;
+
+            public int yari1200TestOran { get; set; } = 20;
+
+            public int yariFullTestOran { get; set; } = 33;
+
+            public decimal yariKarTutar { get; set; } = 0;
+
+
+
+
+            //public Classifier[] classifiers = { new Logistic(), new SimpleLogistic(),
+            //    new AdaBoostM1(), new Bagging(), new LogitBoost(),
+            //    new RandomSubSpace(), new DecisionTable(), new REPTree()};
+
+
+            public Classifier[] classifiers = { new Logistic(), new SGD(), new SimpleLogistic(), new SMO(), new VotedPerceptron(),
+                new AdaBoostM1(),  new Bagging(), new LogitBoost(), new RandomSubSpace(), new DecisionTable(), new REPTree()};
+
+    }
     }
 }

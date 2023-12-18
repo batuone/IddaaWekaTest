@@ -417,6 +417,7 @@ namespace IddaaWekaTest
         public class MacHesaplamaYuzde
         {
             public string msSkor { get; set; }
+            public string iySkor { get; set; }
             public int iddaaId { get; set; }
             public decimal iddaaOran { get; set; }
             public decimal mlTahminYuzde { get; set; }

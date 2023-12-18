@@ -513,7 +513,24 @@ namespace IddaaWekaTest
 
             return lstOgrenmeKume;
         }
-               
+
+        public List<OGRENME> normalizeOgrenmeKumeYari(List<OGRENME> lstOgrenmeKume)
+        {
+            HelperServis helper = new HelperServis();
+            Instances inst = helper.convertFromListStringToIntancesYari(lstOgrenmeKume.Select(c => c.SONUC).ToList());
+            inst = helper.normalization(inst);
+            List<String> lstOgrenmeSonuc = helper.convertFromIntancesToListString(inst);
+
+            int count = 0;
+            foreach (var item in lstOgrenmeKume)
+            {
+                item.SONUC = lstOgrenmeSonuc.ElementAt(count);
+                count++;
+            }
+
+            return lstOgrenmeKume;
+        }
+
         public List<OGRENME> setMacSonuTahmin(string[] macSonuDahilAttribute, string[] ligler, string ogrenmeTip)
         {
             HelperServis helper = new HelperServis();
@@ -617,7 +634,8 @@ namespace IddaaWekaTest
             return lstUstOgrenmeSatirGenel;
         }
 
-        public List<OgrenmeClass> ekleMacSonuOgrenmeButunAttributeler(string[] ligler, string[] macSonuDahilAttribute, string ogrenmeTip)
+        public List<OgrenmeClass> ekleMacSonuOgrenmeButunAttributeler(string[] ligler, string[] macSonuDahilAttribute, 
+            string ogrenmeTip)
         {
             List<BULTEN> bulten = getirArsivData(ligler);
 
@@ -733,6 +751,10 @@ namespace IddaaWekaTest
             {
                 sb1.Append(helper.convertMacSonucForAltUst(mac));
             }
+            else if (ogrenmeTip == sabitDeger.hangiYariGol)
+            {
+                sb1.Append(helper.convertMacSonucForHangiYari(mac));
+            }
 
             ogrenme.SONUC = sb1.ToString();
             ogrenme.SONUC_REAL = sb1.ToString();
@@ -749,6 +771,11 @@ namespace IddaaWekaTest
             {
                 ogrenme.TIPI = sabitDeger.altUstSonuc;
             }
+            else if (ogrenmeTip == sabitDeger.hangiYariGol)
+            {
+                ogrenme.TIPI = sabitDeger.hangiYariGol;
+            }
+
             ogrenme.LIG = mac.bultenItem.LIG;
 
             lstUstOgrenmeSatirGenelParalel.Add(ogrenme);

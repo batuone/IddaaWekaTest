@@ -28,5 +28,8 @@ namespace IddaaWekaTest
         public Nullable<decimal> MS_2_IDDAA { get; set; }
         public Nullable<decimal> ALT_2_5_IDDAA { get; set; }
         public Nullable<decimal> UST_2_5_IDDAA { get; set; }
+        public Nullable<decimal> YARI_1 { get; set; }
+        public Nullable<decimal> ESIT { get; set; }
+        public Nullable<decimal> YARI_2 { get; set; }
     }
 }

@@ -127,6 +127,9 @@
           <Property Name="MS_2_IDDAA" Type="decimal" Precision="5" Scale="2" />
           <Property Name="ALT_2_5_IDDAA" Type="decimal" Precision="5" Scale="2" />
           <Property Name="UST_2_5_IDDAA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="YARI_1" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ESIT" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="YARI_2" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="BULTEN">
           <Key>
@@ -854,6 +857,9 @@
           <Property Name="MS_2_IDDAA" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="ALT_2_5_IDDAA" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="UST_2_5_IDDAA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="YARI_1" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ESIT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="YARI_2" Type="Decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="BULTEN">
           <Key>
@@ -1572,6 +1578,9 @@
           <EntitySetMapping Name="BOOKMAKER_ODD">
             <EntityTypeMapping TypeName="IDDAA_Model.BOOKMAKER_ODD">
               <MappingFragment StoreEntitySet="BOOKMAKER_ODD">
+                <ScalarProperty Name="YARI_2" ColumnName="YARI_2" />
+                <ScalarProperty Name="ESIT" ColumnName="ESIT" />
+                <ScalarProperty Name="YARI_1" ColumnName="YARI_1" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDDAA_ID" ColumnName="IDDAA_ID" />
                 <ScalarProperty Name="TARIH" ColumnName="TARIH" />

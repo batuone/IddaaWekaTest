@@ -234,6 +234,9 @@
     <Compile Include="TOPLAM_GOL_ISTATISTIK.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Yari2AttributeServisNew.cs" />
+    <Compile Include="Yari2TahminWekaServisNew.cs" />
+    <Compile Include="Yari2WekaTestServisNew.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

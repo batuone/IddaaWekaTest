@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IddaaWekaV0;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,13 @@ namespace IddaaWekaTest
                 AltUstTahminWekaServisNew altUstTahminWekaServisNew = new AltUstTahminWekaServisNew();
                 altUstTahminWekaServisNew.calistirTahmin(ligler);
             }
-                        
+
+            if (item.TIP == "Yari2")
+            {
+                Yari2TahminWekaServisNew yari2TahminWekaServisNew = new Yari2TahminWekaServisNew();
+                yari2TahminWekaServisNew.calistirTahmin(ligler);
+            }
+
             guncelleSiniflandirmaTestIslendi(item.LIG, item.TIP);
             sendTelegramMesaj();
         }

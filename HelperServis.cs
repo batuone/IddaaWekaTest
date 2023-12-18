@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using Telegram.Bot;
+using weka.classifiers;
 using weka.classifiers.functions;
 using weka.core;
 using weka.filters.unsupervised.attribute;
@@ -709,6 +710,7 @@ namespace IddaaWekaTest
 
                     MacHesaplamaYuzde yuzdeItem = new MacHesaplamaYuzde();
                     yuzdeItem.iddaaId = mac.IDDAA_ID;
+                    yuzdeItem.iySkor = ctx.ARSIV.Where(c => c.IDDAA_ID == mac.IDDAA_ID).First().SKOR_IY;
                     yuzdeItem.msSkor = ctx.ARSIV.Where(c => c.IDDAA_ID == mac.IDDAA_ID).First().SKOR_MS;
                     yuzdeItem.mlTahminYuzde = mac.ML_TAHMIN_YUZDE;
                     yuzdeItem.iddaaOran = mac.IDDAA_ORAN;
@@ -724,7 +726,7 @@ namespace IddaaWekaTest
                 return oran;
             }
         }
-    
+
         private double hesaplaKarOran(List<MacHesaplamaYuzde> macYuzdeList, string macTuru, decimal minMlYuzde)
         {
             macYuzdeList = macYuzdeList.Where(c => c.mlTahminYuzde > minMlYuzde).OrderByDescending(c => c.mlTahminYuzde).ToList();
@@ -738,7 +740,7 @@ namespace IddaaWekaTest
                 }
             }
             Dictionary<int, decimal> yuzdeKarMap = new Dictionary<int, decimal>();
-            decimal basari; decimal basarisiz; decimal oran;            
+            decimal basari; decimal basarisiz; decimal oran;
 
             foreach (var item in macYuzdeList)
             {
@@ -748,7 +750,8 @@ namespace IddaaWekaTest
                 {
                     if ((macTuru == "1" && evSahibiMacSonuBasarili(mac.msSkor)) ||
                         (macTuru == "2" && deplasmanMacSonuBasarili(mac.msSkor)) ||
-                        (macTuru == "Ust" && ustMacSonuBasarili(mac.msSkor)))
+                        (macTuru == "Ust" && ustMacSonuBasarili(mac.msSkor)) ||
+                        (macTuru == "Yari2" && yari2Basarili(mac.iySkor, mac.msSkor)))
                     {
                         basari++;
                     }
@@ -763,7 +766,7 @@ namespace IddaaWekaTest
             }
 
             var maxOran = yuzdeKarMap.OrderByDescending(c => c.Value).ToDictionary(x => x.Key, x => x.Value).First().Value;
-            if(maxOran < Convert.ToDecimal(0.75))
+            if (maxOran < Convert.ToDecimal(0.75))
             {
                 //return Convert.ToDouble(macYuzdeList.First().mlTahminYuzde);//default deger paramtreden
                 using (var ctx = new IDDAA_Entities())
@@ -777,7 +780,7 @@ namespace IddaaWekaTest
             }
 
             decimal resultIddaaId = 0;
-            for (int i = yuzdeKarMap.Count()-1; i >= 0; i--)
+            for (int i = yuzdeKarMap.Count() - 1; i >= 0; i--)
             {
                 if (yuzdeKarMap.ElementAt(i).Value >= Convert.ToDecimal(0.75))
                 {
@@ -785,8 +788,8 @@ namespace IddaaWekaTest
                     break;
                 }
             }
-            
-            if(resultIddaaId == 0)
+
+            if (resultIddaaId == 0)
             {
                 using (var ctx = new IDDAA_Entities())
                 {
@@ -795,12 +798,14 @@ namespace IddaaWekaTest
                 }
             }
 
+            string skorIyMac = macYuzdeList.First(c => c.iddaaId == resultIddaaId).iySkor;
             string skorMac = macYuzdeList.First(c => c.iddaaId == resultIddaaId).msSkor;
             decimal mlTahminYuzde = macYuzdeList.First(c => c.iddaaId == resultIddaaId).mlTahminYuzde;
 
             if ((macTuru == "1" && evSahibiMacSonuBasarili(skorMac)) ||
-            (macTuru == "2" && deplasmanMacSonuBasarili(skorMac)) ||
-            (macTuru == "Ust" && ustMacSonuBasarili(skorMac)))
+                (macTuru == "2" && deplasmanMacSonuBasarili(skorMac)) ||
+                (macTuru == "Ust" && ustMacSonuBasarili(skorMac)) ||
+                (macTuru == "Yari2" && yari2Basarili(skorIyMac, skorMac)))
             {
                 if (macYuzdeList.Any(c => c.mlTahminYuzde < mlTahminYuzde))
                 {
@@ -830,7 +835,8 @@ namespace IddaaWekaTest
             {
                 if ((macTuru == "1" && evSahibiMacSonuBasarili(macYuzdeList[i].msSkor)) ||
                     (macTuru == "2" && deplasmanMacSonuBasarili(macYuzdeList[i].msSkor)) ||
-                    (macTuru == "Ust" && ustMacSonuBasarili(macYuzdeList[i].msSkor)))
+                    (macTuru == "Ust" && ustMacSonuBasarili(macYuzdeList[i].msSkor)) ||
+                    (macTuru == "Yari2" && yari2Basarili(macYuzdeList[i].iySkor, macYuzdeList[i].msSkor)))
                 {
                     if (basarisizMacVar)
                     {
@@ -857,6 +863,117 @@ namespace IddaaWekaTest
             }
 
             return minMlYuzde;
+        }
+
+        public Instances convertFromListStringToIntancesYari(List<String> linesOgrenme)
+        {
+            string[] kolon = linesOgrenme.First().Split(',');
+
+            //set attributes
+            java.util.ArrayList lstAttribute = new java.util.ArrayList();
+            for (int i = 0; i < kolon.Count() - 1; i++)
+            {
+                Attribute attr = new Attribute(i.ToString());
+                lstAttribute.add(attr);
+            }
+
+            Attribute sonuc = sabitDeger.attributeSonucYari();
+            lstAttribute.add(sonuc);
+            Instances dataset = new Instances("column", lstAttribute, 0);
+
+            //set instance
+            for (int i = 0; i < linesOgrenme.Count; i++)
+            {
+                string[] data = linesOgrenme.ElementAt(i).Split(',');
+
+                Instance inst = new DenseInstance(data.Count());
+                for (int x = 0; x < data.Count() - 1; x++)
+                {
+                    inst.setValue(x, Convert.ToDouble(data[x]));
+                }
+                if (data.Last() != "?")
+                {
+                    inst.setValue(sonuc, data.Last());
+                }
+
+                dataset.add(inst);
+            }
+
+            dataset.setClassIndex(dataset.numAttributes() - 1);
+            return dataset;
+        }
+
+        public String convertMacSonucForHangiYari(OgrenmeClass mac)
+        {
+            using (var ctx = new IDDAA_Entities())
+            {
+                string ilkYariMacSkoru = ctx.ARSIV.First(c => c.IDDAA_ID == mac.bultenItem.IDDAA_ID).SKOR_IY;
+                string macSonuSkoru = ctx.ARSIV.First(c => c.IDDAA_ID == mac.bultenItem.IDDAA_ID).SKOR_MS;
+                string[] macSkoru = macSonuSkoru.Split('-');
+                string[] ilkYariSkoru = ilkYariMacSkoru.Split('-');
+                int evSahibiMsGolSayisi = Convert.ToInt32(macSkoru.First());
+                int deplasmanMsGolSayisi = Convert.ToInt32(macSkoru.Last());
+                int evSahibiIyGolSayisi = Convert.ToInt32(ilkYariSkoru.First());
+                int deplasmanIyGolSayisi = Convert.ToInt32(ilkYariSkoru.Last());
+
+                if (((evSahibiMsGolSayisi + deplasmanMsGolSayisi) - (evSahibiIyGolSayisi + deplasmanIyGolSayisi))
+                        > (evSahibiIyGolSayisi + deplasmanIyGolSayisi))
+                {
+                    return "Yari2";
+                }
+                else
+                {
+                    return "Yari1";
+                }
+            }
+        }
+
+        public bool yari2Basarili(string ilkYariSonucu, string macSonucu)
+        {
+            string[] macSkoru = macSonucu.Split('-');
+            string[] ilkYariSkoru = ilkYariSonucu.Split('-');
+            int evSahibiMsGolSayisi = Convert.ToInt32(macSkoru.First());
+            int deplasmanMsGolSayisi = Convert.ToInt32(macSkoru.Last());
+            int evSahibiIyGolSayisi = Convert.ToInt32(ilkYariSkoru.First());
+            int deplasmanIyGolSayisi = Convert.ToInt32(ilkYariSkoru.Last());
+
+            if (((evSahibiMsGolSayisi + deplasmanMsGolSayisi) - (evSahibiIyGolSayisi + deplasmanIyGolSayisi))
+                    > (evSahibiIyGolSayisi + deplasmanIyGolSayisi))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Classifier getMlClassifier(string lig, string tip)
+        {
+            using (var ctx = new IDDAA_Entities())
+            {
+                var ligKontrol = ctx.SINIFLANDIRMA_SONUC.Any(c => c.TIP == tip && c.LIG == lig);
+                if (ligKontrol)
+                {
+                    var guncelLigKontrol = ctx.SINIFLANDIRMA_SONUC.Where(c => c.TIP == tip && c.LIG == lig &&
+                                                c.WEKA_TIP != "MultiClassClassifier")
+                                                .OrderByDescending(c => c.TARIH).First();
+                    foreach (var item in sabitDeger.classifiers)
+                    {
+                        if (item.GetType().Name == guncelLigKontrol.WEKA_TIP)
+                        {
+                            return (Classifier)Activator.CreateInstance(item.GetType());
+                        }
+                    }
+                    //lig yoksa defafult
+                    return new VotedPerceptron();
+                }
+                else
+                {
+                    //lig yoksa defafult
+                    return new VotedPerceptron();
+                }
+            }
         }
     }
 }

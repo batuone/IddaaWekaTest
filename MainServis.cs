@@ -33,7 +33,7 @@ namespace IddaaWekaTest
                     ctx.SaveChanges();
                 }
 
-                testLigler = ctx.SINIFLANDIRMA_TEST.Where(c => c.ISLENDI == 0).ToList();
+                testLigler = ctx.SINIFLANDIRMA_TEST.Where(c => c.ISLENDI == 0).OrderBy(c => c.LIG).ToList();
             }
 
             foreach (var item in testLigler)
