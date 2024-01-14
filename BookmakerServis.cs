@@ -116,7 +116,7 @@ namespace IddaaWekaTest
                         //    return false;
                         //}
 
-                        if (ilkBookmakerYari2Ort > sonBookmakerYari2Ort && ilkBookmakerYari1Ort < sonBookmakerYari1Ort)
+                        if (ilkBookmakerYari2Ort >= sonBookmakerYari2Ort && /*ilkBookmakerYari1Ort < sonBookmakerYari1Ort*/)
                         {
                             return true;
                         }
