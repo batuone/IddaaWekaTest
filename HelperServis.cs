@@ -715,7 +715,10 @@ namespace IddaaWekaTest
                     yuzdeItem.mlTahminYuzde = mac.ML_TAHMIN_YUZDE;
                     yuzdeItem.iddaaOran = mac.IDDAA_ORAN;
 
-                    macYuzdeList.Add(yuzdeItem);
+                    if (mac.ML_TAHMIN_YUZDE != Convert.ToDecimal(100.00))
+                    {
+                        macYuzdeList.Add(yuzdeItem);
+                    }
                 }
 
                 decimal minMlYuzde = bulMinMlYuzde(macYuzdeList, macTuru);
