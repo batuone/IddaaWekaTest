@@ -18,6 +18,7 @@ namespace IddaaWekaTest
             {
                 try
                 {
+                    var mac = ctx.ARSIV.Where(c => c.IDDAA_ID == iddaaId).First();
                     var lstBookmarkSirali = ctx.BOOKMAKER_ODD.Where(c => c.IDDAA_ID == iddaaId).OrderBy(c => c.TARIH).ToList();
                     if (lstBookmarkSirali.Count == 0)
                     {
@@ -38,7 +39,7 @@ namespace IddaaWekaTest
                         //    return false;
                         //}
 
-                        if (ilkBookmakerMs1Ort > sonBookmakerMs1Ort && ilkBookmakerMs2Ort < sonBookmakerMs2Ort)
+                        if (mac.MS_1 <= Convert.ToDecimal(1.25) || (ilkBookmakerMs1Ort > sonBookmakerMs1Ort && ilkBookmakerMs2Ort < sonBookmakerMs2Ort))
                         {
                             return true;
                         }
@@ -55,7 +56,7 @@ namespace IddaaWekaTest
                         //    return false;
                         //}
 
-                        if (ilkBookmakerMs2Ort > sonBookmakerMs2Ort && ilkBookmakerMs1Ort < sonBookmakerMs1Ort)
+                        if (mac.MS_2 <= Convert.ToDecimal(1.25) || (ilkBookmakerMs2Ort > sonBookmakerMs2Ort && ilkBookmakerMs1Ort < sonBookmakerMs1Ort))
                         {
                             return true;
                         }
@@ -92,7 +93,7 @@ namespace IddaaWekaTest
                         //    return false;
                         //}
 
-                        if (ilkBookmakerUstOrt > sonBookmakerUstOrt && ilkBookmakerAltOrt < sonBookmakerAltOrt)
+                        if (mac.UST_2_5 <= Convert.ToDecimal(1.25) || (ilkBookmakerUstOrt > sonBookmakerUstOrt && ilkBookmakerAltOrt < sonBookmakerAltOrt))
                         {
                             return true;
                         }

@@ -28,7 +28,7 @@ namespace IddaaWekaTest
                     && ctx.KG_VAR_YOK_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)
                     && ctx.ILK_YARI_SONU_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)
                     && ctx.MAC_SONU_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)
-                    && ctx.TAKIM_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)).Select(c => c.IDDAA_ID);
+                    /*&& ctx.TAKIM_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)*/).Select(c => c.IDDAA_ID);
 
                 var arsiv = ctx.ARSIV.Where(c => arsivIddaaId.Any(d => c.IDDAA_ID == d) 
                                                 && c.TARIH >= sabitDeger.macSonuBaslangicTarihi);
@@ -303,6 +303,12 @@ namespace IddaaWekaTest
             using (var ctx = new IDDAA_Entities())
             {
                 HelperServis helper = new HelperServis();
+                var isExists = ctx.TAKIM_ISTATISTIK.Any(c => c.IDDAA_ID == ogrenmeClass.bultenItem.IDDAA_ID
+                        && c.TAKIM_ADI == ogrenmeClass.bultenItem.EV_SAHIBI);
+                if (!isExists)
+                {
+                    return ogrenmeClass;
+                }
 
                 var evSahibiTakimIstatistik = ctx.TAKIM_ISTATISTIK.FirstOrDefault(c => c.IDDAA_ID == ogrenmeClass.bultenItem.IDDAA_ID
                     && c.TAKIM_ADI == ogrenmeClass.bultenItem.EV_SAHIBI);
@@ -334,6 +340,13 @@ namespace IddaaWekaTest
             {
                 HelperServis helper = new HelperServis();
 
+                var isExist = ctx.TAKIM_ISTATISTIK.Any(c => c.IDDAA_ID == ogrenmeClass.bultenItem.IDDAA_ID
+                    && c.TAKIM_ADI == ogrenmeClass.bultenItem.DEPLASMAN);
+                if (!isExist)
+                {
+                    return ogrenmeClass;
+
+                }
                 var deplasmanTakimIstatistik = ctx.TAKIM_ISTATISTIK.FirstOrDefault(c => c.IDDAA_ID == ogrenmeClass.bultenItem.IDDAA_ID
                     && c.TAKIM_ADI == ogrenmeClass.bultenItem.DEPLASMAN);
 
@@ -590,7 +603,7 @@ namespace IddaaWekaTest
                     && ctx.KG_VAR_YOK_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)
                     && ctx.ILK_YARI_SONU_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)
                     && ctx.MAC_SONU_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)
-                    && ctx.TAKIM_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)).Select(c => c.IDDAA_ID);
+                    /*&& ctx.TAKIM_ISTATISTIK.Any(d => c.IDDAA_ID == d.IDDAA_ID)*/).Select(c => c.IDDAA_ID);
 
                 var bulten = ctx.BULTEN.Where(c => bultenIddaaId.Any(d => c.IDDAA_ID == d)).ToList();
 
